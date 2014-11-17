@@ -14,6 +14,7 @@ h3 {
   background-color: black;
   background-image: url(/images/portrait.jpg);
   background-size: cover;
+  background-position: center;
   color: white;
   text-align: center;
   text-shadow: 0 1px 5px black;
@@ -40,6 +41,11 @@ h3 {
   a {
     color: rgba(215, 255, 215, 0.55);
   }
+
+  @include media-query($on-palm) {
+    background-position-x: 53%;
+    font-size: 17px;
+  }
 }
 
 nav ul {
@@ -59,3 +65,4 @@ nav ul {
 .site-footer {
   font-size: 80%;
 }
+

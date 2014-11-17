@@ -13,5 +13,6 @@ needs more things that are designed like Craigslist and Reddit.
 
 ### Projects
 
+~~ TODO ~~
 
 [1]: http://www.slideshare.net/bradfrostweb/death-to-bullshit

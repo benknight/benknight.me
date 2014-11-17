@@ -1,5 +1,5 @@
 (function () {
 
-  $('.fixedsticky').fixedsticky();
+  //$('.fixedsticky').fixedsticky();
 
 })();
