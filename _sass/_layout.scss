@@ -5,8 +5,8 @@ h3 {
 }
 
 .site-header {
-  display: flex;
-  align-items: flex-end;
+  @include flexbox();
+  @include align-items(flex-end);
   box-sizing: border-box;
   height: 100vh;
   margin-bottom: spacing(8);
@@ -20,7 +20,7 @@ h3 {
   text-shadow: 0 1px 5px black;
 
   .site-header-inner {
-    flex: 1;
+    @include flex(1);
     background: linear-gradient(transparent, black);
   }
 
