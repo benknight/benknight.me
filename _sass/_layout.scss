@@ -1,6 +1,7 @@
 .page-content {
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     text-align: center;
+    line-height: 1.3;
   }
 }
 
@@ -25,7 +26,6 @@
 
   @include media-query($on-palm) {
     background-position-x: 53%;
-    font-size: 17px;
   }
 
   .site-header-inner {
@@ -71,7 +71,7 @@ nav ul {
   }
 
   li + li:before {
-    content: " / ";
+    content: " · ";
   }
 }
 
@@ -84,16 +84,21 @@ nav ul {
 
   h4 {
     font-size: 200%;
-    text-align: center;
   }
 
   .project-image {
     max-height: 480px;
     overflow: auto;
-    outline: spacing(1) solid #eee;
+    outline: spacing(1) solid hsl(0, 0, 93%);
+    background: hsl(0, 0, 98%);
+
+    @include media-query($on-palm) {
+      overflow: hidden;
+    }
 
     img {
       display: block;
+      margin: 0 auto;
     }
 
     &.alignleft {
@@ -113,7 +118,7 @@ nav ul {
 /** Footer */
 
 .site-footer {
-  margin-top: spacing(9);
+  margin-top: spacing(10);
   padding-top: spacing(5);
   font-size: 80%;
   box-shadow: 0px -0.5px 0 #ccc;

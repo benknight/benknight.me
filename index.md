@@ -21,7 +21,7 @@ people who design things and the people who write code.
 ## Looking for more?
 
 I also have a [screenshot portfolio][2] of older projects.
-{:style="text-align: center"}
+{:style="text-align: center;"}
 
 [1]: http://www.slideshare.net/bradfrostweb/death-to-bullshit
 [2]: https://www.flickr.com/photos/benjamin_knight/sets

@@ -5,6 +5,10 @@ body {
   padding-bottom: spacing(6);
   font: 20px/1.5 Petrona, Baskerville, Georgia, sans-serif;
   font-kerning: normal;
+
+  @include media-query($on-palm) {
+    font-size: 17px;
+  }
 }
 
 h2 {
@@ -28,14 +32,15 @@ img {
 
 /** Links */
 
-$link-color: blue;
+$link-color: #3a3;
 
 a {
   color: $link-color;
+  font-weight: bold;
   text-decoration: none;
 
   &:visited {
-    color: darken($link-color, 15%);
+    color: darken($link-color, 10%);
   }
 
   &:hover {
