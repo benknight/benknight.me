@@ -23,6 +23,11 @@
   text-align: center;
   text-shadow: 0 1px 5px black;
 
+  @include media-query($on-palm) {
+    background-position-x: 53%;
+    font-size: 17px;
+  }
+
   .site-header-inner {
     @include flex(1);
     background: linear-gradient(transparent, black);
@@ -44,11 +49,6 @@
 
   a {
     color: rgba(215, 255, 215, 0.55);
-  }
-
-  @include media-query($on-palm) {
-    background-position-x: 53%;
-    font-size: 17px;
   }
 }
 
@@ -88,7 +88,7 @@ nav ul {
   }
 
   .project-image {
-    height: 480px;
+    max-height: 480px;
     overflow: auto;
     outline: spacing(1) solid #eee;
 
@@ -99,6 +99,11 @@ nav ul {
     &.alignleft {
       float: left;
       margin-right: spacing(5);
+
+      @include media-query($on-palm) {
+        float: none;
+        margin-right: 0;
+      }
     }
   }
 }
