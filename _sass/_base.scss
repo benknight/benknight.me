@@ -2,9 +2,17 @@
 
 body {
   margin: 0;
-  padding-bottom: spacing(10);
-  font: 20px/1.3 Baskerville, Georgia, sans-serif;
+  padding-bottom: spacing(6);
+  font: 20px/1.5 Petrona, Baskerville, Georgia, sans-serif;
   font-kerning: normal;
+}
+
+h2 {
+  font-size: 140%;
+}
+
+h1, h2, h3, h4, p, ul, ol {
+  margin: spacing(5) 0;
 }
 
 
@@ -64,4 +72,8 @@ a {
     display: table;
     clear: both;
   }
+}
+
+.clearfix {
+  @extend %clearfix;
 }

@@ -1,8 +1,12 @@
-h1,
-h2,
-h3 {
-  text-align: center;
+.page-content {
+  h1, h2, h3 {
+    text-align: center;
+  }
 }
+
+
+
+/** Header */
 
 .site-header {
   @include flexbox();
@@ -48,13 +52,22 @@ h3 {
   }
 }
 
+
+
+/** Nav */
+
 nav ul {
   list-style: none;
-  margin: 1.5em 0;
+  margin: spacing(5) 0;
   padding: 0;
 
   li {
     display: inline-block;
+  }
+
+  a {
+    display: inline-block;
+    margin: 0 spacing(1);
   }
 
   li + li:before {
@@ -62,7 +75,41 @@ nav ul {
   }
 }
 
-.site-footer {
-  font-size: 80%;
+
+
+/** Content */
+
+.project {
+  margin-bottom: spacing(12);
+
+  h4 {
+    font-size: 200%;
+    text-align: center;
+  }
+
+  .project-image {
+    height: 480px;
+    overflow: auto;
+    outline: spacing(1) solid #eee;
+
+    img {
+      display: block;
+    }
+
+    &.alignleft {
+      float: left;
+      margin-right: spacing(5);
+    }
+  }
 }
 
+
+
+/** Footer */
+
+.site-footer {
+  margin-top: spacing(9);
+  padding-top: spacing(5);
+  font-size: 80%;
+  box-shadow: 0px -0.5px 0 #ccc;
+}

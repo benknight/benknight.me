@@ -1,5 +1,3 @@
 (function () {
 
-  //$('.fixedsticky').fixedsticky();
-
 })();
