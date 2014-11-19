@@ -4,7 +4,7 @@ email: ben@benknight.me
 description: > # this means to ignore newlines until "baseurl:"
   SF-based designer & developer.  I've got moxie.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://benknight.github.io" # the base hostname & protocol for your site
+url: "https://benknight.github.io" # the base hostname & protocol for your site
 collections:
 - projects
 
