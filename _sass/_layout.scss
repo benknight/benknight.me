@@ -5,17 +5,27 @@
   }
 
   h2 {
+    display: flex;
+    align-items: center;
     white-space: nowrap;
 
     &:before,
     &:after {
       content: "";
+      display: block;
+      flex: 1;
       height: 1px;
-      display: inline-block;
       width: 30%;
       vertical-align: middle;
       box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.25);
-      margin: 0 spacing(2);
+    }
+
+    &:before {
+      margin-right: spacing(5);
+    }
+
+    &:after {
+      margin-left: spacing(5);
     }
   }
 }
