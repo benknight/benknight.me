@@ -1,5 +1,5 @@
 ---
-title: "Evil Apples Website"
+title: "EvilApples.com"
 image:
   url: ea.png
   link: http://evilapples.com
