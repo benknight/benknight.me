@@ -1,1 +1,1 @@
-Just your standard everday Github user page, built using Jekyll.
+Just your standard everyday Github user page, built using Jekyll.
