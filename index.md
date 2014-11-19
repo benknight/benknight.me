@@ -14,13 +14,13 @@ Don't *over-design*  things. The world needs more things that are designed like
 Craigslist and Reddit. I believe in breaking down the barriers between the
 people who design things and the people who write code.
 
-## Portfolio
+## Projects
 
 {% include projects.html %}
 
 ## Looking for more?
 
-I also have a [screenshot portfolio][2] of older projects.
+I also have a [Flickr screenshot portfolio][2] of older projects.
 {:style="text-align: center;"}
 
 [1]: http://www.slideshare.net/bradfrostweb/death-to-bullshit
