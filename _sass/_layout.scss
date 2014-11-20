@@ -43,7 +43,8 @@
   box-sizing: border-box;
   height: 100vh;
   margin-bottom: spacing(8);
-  padding-top: spacing(8);
+  padding-top: spacing(10);
+  background-attachment: fixed;
   background-color: black;
   background-image: url(/images/portrait.jpg);
   background-size: cover;
