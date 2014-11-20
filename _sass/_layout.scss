@@ -16,7 +16,8 @@
       height: 1px;
       width: 30%;
       vertical-align: middle;
-      box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.25);
+      border: 0.5px solid black;
+      box-shadow: 0 0.5px 0 black; // Chrome
     }
 
     &:before {
