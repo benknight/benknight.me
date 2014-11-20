@@ -2,7 +2,7 @@
 layout: github-markdown
 ---
 
-♘ Benjamin Knight
+![knight icon](/images/knight.svg){:width="28"} Benjamin Knight
 ====================
 
 * Web Designer & Developer
