@@ -69,7 +69,7 @@ a {
 
 
 
-/** Clearfix */
+/** Utils */
 
 %clearfix {
   &:after {
@@ -81,4 +81,12 @@ a {
 
 .clearfix {
   @extend %clearfix;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
 }
