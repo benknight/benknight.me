@@ -40,10 +40,12 @@
 .site-header {
   @include flexbox();
   @include align-items(flex-end);
+  position: relative;
   box-sizing: border-box;
   height: 100vh;
   margin-bottom: spacing(8);
   padding-top: spacing(10);
+  outline: 15px solid black;
   background-attachment: fixed;
   background-color: black;
   background-image: url(/images/portrait.jpg);
@@ -57,9 +59,20 @@
     background-position-x: 53%;
   }
 
+  &:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    display: block;
+    height: 15px;
+    width: 100%;
+    border-radius: 999px 999px 0 0;
+    background: white;
+  }
+
   .site-header-inner {
     @include flex(1);
-    background: linear-gradient(transparent, black);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
   }
 
   .wrapper {
@@ -75,10 +88,6 @@
   h2 {
     font-weight: normal;
   }
-
-  a {
-    color: rgba(215, 255, 215, 0.55);
-  }
 }
 
 
@@ -87,8 +96,16 @@
 
 nav ul {
   list-style: none;
-  margin: spacing(5) 0;
-  padding: 0;
+  margin: spacing(4) 0 spacing(6);
+  padding: spacing(2) spacing(3);
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+
+  @include media-query($on-palm) {
+    background: none;
+    padding: 0;
+  }
 
   li {
     display: inline-block;
@@ -147,14 +164,25 @@ nav ul {
 /** Footer */
 
 .site-footer {
+  @include flexbox;
+  @include align-items(flex-end);
+  @include flex-wrap(wrap);
   margin-top: spacing(10);
-  padding: spacing(7) spacing(8) spacing(6);
-  color: rgba(0, 0, 0, 0.5);
-  background: white;
+  padding: spacing(3) spacing(8);
   font-size: 80%;
-  box-shadow: 0px -0.5px 0 #ccc;
+  background: white;
+  color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -1px 1px hsla(0, 0%, 0%, 0.05);
 
   p {
-    margin-top: 0;
+    margin: 24px 0;
+  }
+
+  div:first-child {
+    @include flex(1);
+    @include media-query(1000px) {
+      @include flex(none);
+      width: 100%;
+    }
   }
 }

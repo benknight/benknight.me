@@ -40,7 +40,7 @@ a {
   text-decoration: none;
 
   &:visited {
-    color: darken($link-color, 10%);
+    // color: darken($link-color, 10%);
   }
 
   &:hover {
@@ -89,4 +89,12 @@ a {
 
 .pull-right {
   float: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
 }

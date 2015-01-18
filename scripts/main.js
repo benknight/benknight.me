@@ -1,8 +1,10 @@
 (function () {
 
-    // We set height to mimick `height: 100vh` in CSS, which is
+    // We set height to mimic `height: 100vh` in CSS, which is
     // unfortunately not reliable.
     // See: https://code.google.com/p/chromium/issues/detail?id=428132
+
+    var OFFSET = 40;
 
     var mediaQueryList = window.matchMedia('(orientation: portrait)');
 
@@ -12,9 +14,9 @@
       var $siteHeader = $('.site-header');
 
       if (mediaQueryList.matches) {
-        $siteHeader.css('height', Math.max(vh, vw));
+        $siteHeader.css('height', Math.max(vh, vw) - OFFSET);
       } else {
-        $siteHeader.css('height', Math.min(vh, vw));
+        $siteHeader.css('height', Math.min(vh, vw) - OFFSET);
       }
     }
 
