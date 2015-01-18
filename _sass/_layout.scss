@@ -57,6 +57,8 @@
 
   @include media-query($on-palm) {
     background-position-x: 53%;
+    // for some reason fixed attachment doesn't work on ios
+    background-attachment: scroll;
   }
 
   &:before {
@@ -111,13 +113,19 @@ nav ul {
     display: inline-block;
   }
 
-  a {
-    display: inline-block;
-    margin: 0 spacing(1);
-  }
-
   li + li:before {
     content: " · ";
+  }
+
+  a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    margin: 0 spacing(1);
+
+    @include media-query($on-palm) {
+      margin: 0;
+    }
   }
 }
 
