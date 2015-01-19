@@ -7,6 +7,7 @@
   h2 {
     @include flexbox();
     @include align-items(center);
+    color: hsla(0, 0, 0%, 0.45);
 
     $line-color: hsla(0, 0, 0%, 0.25);
 
@@ -43,9 +44,9 @@
   position: relative;
   box-sizing: border-box;
   height: 100vh;
-  margin-bottom: spacing(8);
-  padding-top: spacing(10);
+  margin-bottom: spacing(14);
   outline: 15px solid black;
+  font-size: 24px;
   background-attachment: fixed;
   background-color: black;
   background-image: url(/images/portrait.jpg);
@@ -61,16 +62,16 @@
     background-attachment: scroll;
   }
 
-  &:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    display: block;
-    height: 15px;
-    width: 100%;
-    border-radius: 999px 999px 0 0;
-    background: white;
-  }
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 100%;
+  //   display: block;
+  //   height: 15px;
+  //   width: 100%;
+  //   border-radius: 999px 999px 0 0;
+  //   background: white;
+  // }
 
   .site-header-inner {
     @include flex(1);
@@ -97,12 +98,12 @@
 /** Nav */
 
 nav ul {
+  display: inline-block;
   list-style: none;
   margin: spacing(4) 0 spacing(6);
   padding: spacing(2) spacing(3);
-  display: inline-block;
+  font-size: 17px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
 
   @include media-query($on-palm) {
     background: none;
@@ -120,7 +121,6 @@ nav ul {
   a {
     display: inline-block;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 17px;
     margin: 0 spacing(1);
 
     @include media-query($on-palm) {
@@ -172,25 +172,29 @@ nav ul {
 /** Footer */
 
 .site-footer {
-  @include flexbox;
-  @include align-items(flex-end);
-  @include flex-wrap(wrap);
   margin-top: spacing(10);
-  padding: spacing(3) spacing(8);
+  padding: spacing(2.5) 0;
   font-size: 80%;
   background: white;
-  color: rgba(0, 0, 0, 0.5);
+  color: hsla(0, 0, 0%, 0.33);
   box-shadow: 0 -1px 1px hsla(0, 0%, 0%, 0.05);
 
   p {
     margin: 24px 0;
   }
 
-  div:first-child {
-    @include flex(1);
-    @include media-query(1000px) {
-      @include flex(none);
-      width: 100%;
+  .wrapper {
+    @include flexbox;
+    @include align-items(flex-end);
+    @include flex-wrap(wrap);
+    max-width: 1000px;
+
+    div:first-child {
+      @include flex(1);
+      @include media-query(1000px) {
+        @include flex(none);
+        width: 100%;
+      }
     }
   }
 }
