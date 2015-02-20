@@ -48,7 +48,7 @@
   outline: 15px solid black;
   font-size: 24px;
   background-color: black;
-  background-image: url(/images/portrait.jpg);
+  background-image: linear-gradient(to right, black, transparent 40%), url(/images/portrait.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
