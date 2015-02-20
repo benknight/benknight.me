@@ -170,14 +170,14 @@ nav ul {
 
 .site-footer {
   margin-top: spacing(10);
-  padding: spacing(2.5) 0;
+  padding: spacing(2.5) 0 spacing(5);
   font-size: 80%;
   background: white;
   color: hsla(0, 0, 0%, 0.33);
   box-shadow: 0 -1px 1px hsla(0, 0%, 0%, 0.05);
 
   p {
-    margin: 24px 0;
+    margin: 24px 0 0 0;
   }
 
   .wrapper {
