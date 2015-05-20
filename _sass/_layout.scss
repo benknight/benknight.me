@@ -7,9 +7,8 @@
   h2 {
     @include flexbox();
     @include align-items(center);
-    color: hsla(0, 0, 0%, 0.45);
 
-    $line-color: hsla(0, 0, 0%, 0.25);
+    $line-color: black;
 
     &:before,
     &:after {
@@ -43,40 +42,15 @@
   @include align-items(flex-end);
   position: relative;
   box-sizing: border-box;
-  height: 100vh;
   margin-bottom: spacing(14);
-  outline: 15px solid black;
   font-size: 24px;
   background-color: black;
-  background-image: linear-gradient(to right, black, transparent 40%), url(/images/portrait.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   color: white;
   text-align: center;
   text-shadow: 0 1px 5px black;
 
-  @include media-query($on-palm) {
-    font-size: 20px;
-    background-position-x: 53%;
-    // for some reason fixed attachment doesn't work on ios
-    background-attachment: scroll;
-  }
-
-  // &:before {
-  //   content: "";
-  //   position: absolute;
-  //   top: 100%;
-  //   display: block;
-  //   height: 15px;
-  //   width: 100%;
-  //   border-radius: 999px 999px 0 0;
-  //   background: white;
-  // }
-
   .site-header-inner {
     @include flex(1);
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
   }
 
   .wrapper {
