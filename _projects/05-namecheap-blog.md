@@ -6,4 +6,4 @@ image:
 
 ---
 
-I designed and coded Namecheap's blog in January 2015, built on WordPress.
+Namecheap WordPress theme design & code in January 2015.

@@ -1,4 +1,4 @@
-{% for project in site.projects | sort: 'order' %}
+{% for project in site.projects reversed %}
 <div class="project clearfix">
 
   <h4>{{ project.title }}</h4>

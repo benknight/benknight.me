@@ -154,11 +154,13 @@ nav ul {
 
     &.alignleft {
       float: left;
+      max-width: 320px;
       margin-right: spacing(5);
 
       @include media-query($on-palm) {
         float: none;
-        margin-right: 0;
+        margin-right: auto;
+        margin-left: auto;
       }
     }
   }
