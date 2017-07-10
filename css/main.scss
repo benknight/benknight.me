@@ -21,8 +21,15 @@ $spacing-unit: 6px;
 $on-palm: 600px;
 $on-laptop: 800px;
 
-@mixin media-query($device) {
+@mixin respond-below($device) {
   @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin respond-above($device) {
+  $min-width: $device + 1px;
+  @media screen and (min-width: $min-width) {
     @content;
   }
 }

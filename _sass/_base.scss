@@ -6,7 +6,7 @@ body {
   font: 20px/1.5 Petrona, Baskerville, Georgia, sans-serif;
   font-kerning: normal;
 
-  @include media-query($on-palm) {
+  @include respond-below($on-palm) {
     font-size: 17px;
   }
 }
@@ -60,7 +60,7 @@ a {
   padding-left: spacing(5);
   @extend %clearfix;
 
-  @include media-query($on-laptop) {
+  @include respond-below($on-laptop) {
     max-width: 800px - spacing(5);
     padding-right: spacing(2.5);
     padding-left: spacing(2.5);

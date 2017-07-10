@@ -5,13 +5,12 @@
     // See: https://code.google.com/p/chromium/issues/detail?id=428132
 
     var OFFSET = 40;
-
     var mediaQueryList = window.matchMedia('(orientation: portrait)');
+    var $siteHeader = $('.site-header');
 
-    function setMaxHeight (mediaQueryList) {
+    function setMaxHeight(mediaQueryList) {
       var vh = window.innerHeight;
       var vw = window.innerWidth;
-      var $siteHeader = $('.site-header');
 
       if (mediaQueryList.matches) {
         $siteHeader.css('height', Math.max(vh, vw) - OFFSET);
@@ -23,7 +22,18 @@
     setMaxHeight(mediaQueryList);
     mediaQueryList.addListener(setMaxHeight);
 
+    var animation = $siteHeader.get(0).animate(
+      [{ filter: 'hue-rotate(0deg)' }, { filter: 'hue-rotate(360deg)' }],
+      { duration: 12000, delay: 1500, iterations: Infinity },
+    );
 
+    $siteHeader.on('mouseleave', function () {
+      animation.pause();
+    });
+
+    $siteHeader.on('mouseenter', function () {
+      animation.play();
+    });
 
     // Scrolling behavior
     // Used to track the enabling of hover effects

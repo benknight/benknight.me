@@ -48,19 +48,31 @@
   outline: 15px solid black;
   font-size: 24px;
   background-color: black;
-  background-image: linear-gradient(to right, black, transparent 40%), url(/images/portrait.jpg);
-  background-size: cover;
-  background-position: center;
+  background-image: url(/images/portrait-2.jpg);
+  background-size: auto 120%;
+  background-position: 65% 50%;
   background-repeat: no-repeat;
   color: white;
   text-align: center;
   text-shadow: 0 1px 5px black;
 
-  @include media-query($on-palm) {
+  @include respond-below($on-palm) {
     font-size: 20px;
-    background-position-x: 53%;
     // for some reason fixed attachment doesn't work on ios
     background-attachment: scroll;
+  }
+
+  @media screen and (orientation: landscape) {
+    background-position: 35% 80%;
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 10%,
+        rgba(0, 0, 0, 0) 25%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 1) 75%
+      ),
+      url(/images/portrait-2.jpg);
   }
 
   // &:before {
@@ -106,7 +118,7 @@ nav ul {
   font-size: 17px;
   background: rgba(255, 255, 255, 0.1);
 
-  @include media-query($on-palm) {
+  @include respond-below($on-palm) {
     background: none;
     padding: 0;
   }
@@ -124,7 +136,7 @@ nav ul {
     color: rgba(255, 255, 255, 0.7);
     margin: 0 spacing(1);
 
-    @include media-query($on-palm) {
+    @include respond-below($on-palm) {
       margin: 0;
     }
   }
@@ -157,7 +169,7 @@ nav ul {
       max-width: 320px;
       margin-right: spacing(5);
 
-      @include media-query($on-palm) {
+      @include respond-below($on-palm) {
         float: none;
         margin-right: auto;
         margin-left: auto;
@@ -190,7 +202,7 @@ nav ul {
 
     div:first-child {
       @include flex(1);
-      @include media-query(1000px) {
+      @include respond-below(1000px) {
         @include flex(none);
         width: 100%;
       }
