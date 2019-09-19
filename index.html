@@ -2,11 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta content="width=device-width,maximum-scale=1" name="viewport">
     <title>Benjamin Knight &ndash; Coder & Designer</title>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline&display=swap" rel="stylesheet">
     <style>
       html {
+        -webkit-font-smoothing: subpixel-antialiased;
         background-color: black;
         min-height: 100%;
         font: 14px/1.5 Bungee Hairline, monospace;
@@ -14,16 +15,18 @@
       }
 
       body {
+        position: relative;
         margin: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 100vh;
+        min-width: 375px;
       }
 
       picture {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         display: block;
@@ -56,21 +59,21 @@
         text-align: center;
         text-decoration: none;
         font-size: 200%;
-        -webkit-font-smoothing: subpixel-antialiased;
       }
     </style>
   </head>
   <body>
     <picture>
+      <!-- Photo by Jim Stone -->
       <source media="(orientation: landscape)" srcset="portrait-landscape.jpg">
-      <img alt="" src="portrait-square.jpg">
+      <img alt="" src="portrait-square.jpg" height="300">
     </picture>
     <ul>
-      <li><a href="https://cocolist.vn">Cocolist</a></li>
-      <li><a href="http://louiesnewyork.com">Louie’s New York</a></li>
-      <li><a href="https://toptal.com/resume/benjamin-knight">Resume & portfolio</a></li>
-      <li><a href="http://github.com/benknight/hue-alfred-workflow">Hue Workflow</a></li>
-      <li><a href="http://benknight.me/hue-harmony">Hue Harmony</a></li>
+      <li><a href="https://cocolist.vn/about" rel="author">Cocolist</a></li>
+      <li><a href="http://louiesnewyork.com" rel="author">Louie’s New York</a></li>
+      <li><a href="https://toptal.com/resume/benjamin-knight" rel="author">Resume & portfolio</a></li>
+      <li><a href="http://github.com/benknight/hue-alfred-workflow" rel="author">Hue Workflow</a></li>
+      <li><a href="http://benknight.me/hue-harmony" rel="author">Hue Harmony</a></li>
     </ul>
   </body>
 </html>
