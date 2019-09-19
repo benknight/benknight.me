@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width" name="viewport" />
+    <title>Where in the world is Benjamin Knight?</title>
+    <style>
+      a {
+        display: inline-block;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      const spreadsheetID = '1oezVj5O97Ao0g52UvCruCQOSd4Js0MnB1_tuo5mP8I0';
+      const key = 'AIzaSyAGLqTBLbyJvKOMEWRaMKTKrbV5hCuMTuQ';
+      const sheetURL = 'https://sheets.googleapis.com/v4/spreadsheets/' +
+        `${spreadsheetID}/values/Sheet1!A1:D99?key=${key}`;
+
+      function parseShittyDate(input) {
+        return new Date(input.replace(/ at .*/, ''));
+      }
+
+      axios.get(sheetURL).then(response => {
+        const lat = response.data.values[0][1];
+        const lng = response.data.values[0][2];
+        const imgParams = new URLSearchParams({
+          markers: `color:red|${lat},${lng}`,
+          key,
+          scale: 2,
+          size: '640x480',
+          zoom: 7,
+        });
+
+        document.getElementById('root').innerHTML = `
+          <a href="https://maps.google.com/maps?q=${lat},${lng}">
+            <img
+              src="http://maps.google.com/maps/api/staticmap?${imgParams.toString()}"
+              width="640"
+              height="480">
+          </a>
+          <h1>Location History</h1>
+          <ul>
+            ${response.data.values
+              .map(
+                row => `
+                  <li>
+                    <b>${row[3]}</b>
+                    ${parseShittyDate(row[0]).toLocaleDateString([], { dateStyle: 'medium' })}
+                  </li>
+                `
+              )
+              .join('')}
+          </ul>
+        `;
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root">Loading...</div>
+  </body>
+</html>
