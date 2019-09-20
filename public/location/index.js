@@ -54,21 +54,21 @@ axios.get(sheetURL).then(response => {
   staticMapsStyle.forEach(style => imgParams.append('style', style));
 
   document.getElementById('root').innerHTML = `
-    <a class="link color-inherit" href="${getGMapsLink(lat, lng)}">
-      <h1 class="f1 f-headline-ns lh-title mv4 mv5-ns ph3 ph5-ns">${currentRow[3]}</h1>
+    <h1 class="f2 f1-m f-subheadline-l lh-title mv4 mv5-l ph3 ph5-l">${currentRow[3]}</h1>
+    <a href="${getGMapsLink(lat, lng)}">
       <img
         class="h-auto"
         src="http://maps.google.com/maps/api/staticmap?${imgParams.toString()}"
         width="640"
         height="427">
     </a>
-    <ul class="list ph4 ph7-ns mv4 mv5-ns tl lh-copy">
+    <ul class="list ph4 ph6-l mv4 mv5-l tl lh-copy mw8">
       ${rows
         .map(
           row =>
-            `<li class="mt4 f3-ns">
+            `<li class="mt4 f3-l">
               <a class="link color-inherit" href="${getGMapsLink(row[1], row[2])}">
-                <b class="white">${row[3]}</b><br />
+                <b class="near-white">${row[3]}</b><br />
                 ${formatShittyDate(row)}
               </a>
             </li>`,
