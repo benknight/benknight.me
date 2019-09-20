@@ -40,8 +40,8 @@ function getGMapsLink(lat, lng) {
 }
 
 axios.get(sheetURL).then(response => {
-  response.data.values.reverse();
-  const currentRow = response.data.values[0];
+  const rows = response.data.values.reverse().filter(row => !!row[3]);
+  const currentRow = rows[0];
   const lat = currentRow[1];
   const lng = currentRow[2];
   const imgParams = new URLSearchParams({
@@ -63,7 +63,7 @@ axios.get(sheetURL).then(response => {
         height="427">
     </a>
     <ul class="list ph4 ph7-ns mv4 mv5-ns tl lh-copy">
-      ${response.data.values
+      ${rows
         .map(
           row =>
             `<li class="mt4 f3-ns">
