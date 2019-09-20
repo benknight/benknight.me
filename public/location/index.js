@@ -58,7 +58,7 @@ axios.get(sheetURL).then(response => {
     <a href="${getGMapsLink(lat, lng)}">
       <img
         class="h-auto"
-        src="http://maps.google.com/maps/api/staticmap?${imgParams.toString()}"
+        src="https://maps.google.com/maps/api/staticmap?${imgParams.toString()}"
         width="640"
         height="427">
     </a>
