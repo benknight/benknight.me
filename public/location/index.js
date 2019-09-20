@@ -32,7 +32,7 @@ const IFTTTTimeFormat = 'MMMM D, YYYY at hh:mmA';
 function formatShittyDate(row) {
   const timezone = tzlookup(row[1], row[2]);
   const m = moment.tz(row[0], IFTTTTimeFormat, timezone);
-  return m.calendar(null, { sameElse: 'MMMM D, YYYY' });
+  return m.calendar(null, { lastWeek: 'dddd [at] LT', sameElse: 'MMMM D, YYYY' });
 }
 
 function getGMapsLink(lat, lng) {
@@ -54,7 +54,7 @@ axios.get(sheetURL).then(response => {
   staticMapsStyle.forEach(style => imgParams.append('style', style));
 
   document.getElementById('root').innerHTML = `
-    <h1 class="f2 f1-m f-subheadline-l lh-title mv4 mv5-l ph3 ph5-l">${currentRow[3]}</h1>
+    <h1 class="f2 f1-m f-subheadline-l lh-title mv4 mv5-l ph4 ph5-l">${currentRow[3]}</h1>
     <a href="${getGMapsLink(lat, lng)}">
       <img
         class="h-auto"
