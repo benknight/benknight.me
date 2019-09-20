@@ -35,29 +35,44 @@ function formatShittyDate(row) {
   return m.calendar(null, { sameElse: 'MMMM D, YYYY' });
 }
 
+function getGMapsLink(lat, lng) {
+  return `https://maps.google.com/maps?q=${lat},${lng}`;
+}
+
 axios.get(sheetURL).then(response => {
   response.data.values.reverse();
-  const lat = response.data.values[0][1];
-  const lng = response.data.values[0][2];
+  const currentRow = response.data.values[0];
+  const lat = currentRow[1];
+  const lng = currentRow[2];
   const imgParams = new URLSearchParams({
-    markers: `color:red|${lat},${lng}`,
+    markers: `color:red|size:mid|scale:2|${lat},${lng}`,
     key,
     scale: 2,
-    size: '640x480',
+    size: '640x427',
     zoom: 6,
   });
   staticMapsStyle.forEach(style => imgParams.append('style', style));
 
   document.getElementById('root').innerHTML = `
-    <a href="https://maps.google.com/maps?q=${lat},${lng}">
+    <a class="link color-inherit" href="${getGMapsLink(lat, lng)}">
+      <h1 class="f1 f-headline-ns lh-title mv4 mv5-ns ph3 ph5-ns">${currentRow[3]}</h1>
       <img
+        class="h-auto"
         src="http://maps.google.com/maps/api/staticmap?${imgParams.toString()}"
         width="640"
-        height="480">
+        height="427">
     </a>
-    <ul>
+    <ul class="list ph4 ph7-ns mv4 mv5-ns tl lh-copy">
       ${response.data.values
-        .map(row => `<li><b>${row[3]}</b><br />${formatShittyDate(row)}</li>`)
+        .map(
+          row =>
+            `<li class="mt4 f3-ns">
+              <a class="link color-inherit" href="${getGMapsLink(row[1], row[2])}">
+                <b class="white">${row[3]}</b><br />
+                ${formatShittyDate(row)}
+              </a>
+            </li>`,
+        )
         .join('')}
     </ul>
   `;
