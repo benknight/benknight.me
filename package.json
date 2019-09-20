@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "benknight",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "firebase serve --only hosting",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "firebase-tools": "^7.3.2"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width" name="viewport" />
+    <title>Where in the world is Benjamin Knight?</title>
+    <style>
+      html {
+        font: 16px/1.5 sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 1rem;
+        background-color: hsl(0deg, 0%, 10%);
+        color: hsl(0deg, 0%, 80%);
+      }
+
+      a {
+        display: inline-block;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        margin-top: 2rem;
+      }
+    </style>
+    <script defer src="../node_modules/axios/dist/axios.min.js"></script>
+    <script defer src="../node_modules/moment/min/moment.min.js"></script>
+    <script defer src="../node_modules/moment-timezone/builds/moment-timezone-with-data-10-year-range.min.js"></script>
+    <script defer src="../node_modules/tz-lookup/tz.js"></script>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <div id="root">Loading...</div>
+  </body>
+</html>
