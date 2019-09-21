@@ -15,6 +15,7 @@
   "dependencies": {
     "@google/maps": "^1.0.1",
     "airtable": "^0.7.1",
+    "country-emoji": "^1.5.0",
     "firebase-admin": "^8.0.0",
     "firebase-functions": "^3.1.0"
   },

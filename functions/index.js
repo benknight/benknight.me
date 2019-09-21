@@ -12,6 +12,7 @@
 const Airtable = require('airtable');
 const Functions = require('firebase-functions');
 const GoogleMaps = require('@google/maps');
+const { flag } = require('country-emoji');
 
 const airtableKey = Functions.config().airtable.api_key;
 const googleKey = Functions.config().google.server_key;
@@ -42,13 +43,15 @@ exports.postLocation = Functions.https.onRequest(async (request, response) => {
     } = await mapsClient
       .reverseGeocode({
         latlng: [lat, lng],
-        result_type: 'locality|administrative_area_level_1',
+        result_type: 'country|locality|administrative_area_level_1',
       })
       .asPromise();
     const locality = results.find(r => r.types.indexOf('locality') !== -1);
     const adminAreaL1 = results.find(
       r => r.types.indexOf('administrative_area_level_1') !== -1,
     );
+    const country = results.find(r => r.types.indexOf('country') !== -1);
+    const address = (locality || adminAreaL1).formatted_address;
     const records = await base('Location').create([
       {
         fields: {
@@ -56,6 +59,7 @@ exports.postLocation = Functions.https.onRequest(async (request, response) => {
           Lat: lat,
           Lng: lng,
           Address: (locality || adminAreaL1).formatted_address,
+          Emoji: country && flag(country.formatted_address),
         },
       },
     ]);
