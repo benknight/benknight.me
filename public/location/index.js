@@ -22,54 +22,42 @@ const staticMapsStyle = [
   'feature:water|element:labels.text.fill|color:0x3d3d3d',
 ];
 
-const spreadsheetID = '1oezVj5O97Ao0g52UvCruCQOSd4Js0MnB1_tuo5mP8I0';
-const key = 'AIzaSyAGLqTBLbyJvKOMEWRaMKTKrbV5hCuMTuQ';
-const sheetURL =
-  'https://sheets.googleapis.com/v4/spreadsheets/' +
-  `${spreadsheetID}/values/Sheet1!A1:D99?key=${key}`;
-const IFTTTTimeFormat = 'MMMM D, YYYY at hh:mmA';
-
-function formatShittyDate(row) {
-  const timezone = tzlookup(row[1], row[2]);
-  const m = moment.tz(row[0], IFTTTTimeFormat, timezone);
-  return m.calendar(null, { lastWeek: 'dddd [at] LT', sameElse: 'MMMM D, YYYY' });
-}
-
-function getGMapsLink(lat, lng) {
-  return `https://maps.google.com/maps?q=${lat},${lng}`;
-}
-
-axios.get(sheetURL).then(response => {
-  const rows = response.data.values.reverse().filter(row => !!row[3]);
-  const currentRow = rows[0];
-  const lat = currentRow[1];
-  const lng = currentRow[2];
+axios.get('/getLocations').then(response => {
+  const records = response.data;
+  const current = records[0];
   const imgParams = new URLSearchParams({
-    markers: `color:red|size:mid|scale:2|${lat},${lng}`,
-    key,
+    markers: `color:red|size:mid|scale:2|${current.Lat},${current.Lng}`,
+    key: 'AIzaSyDq5zfLEium8NQpQS7XElO2RjxvvMmkJks',
     scale: 2,
-    size: '640x427',
+    size: '640x480',
     zoom: 6,
   });
   staticMapsStyle.forEach(style => imgParams.append('style', style));
+  const staticMapImage = `https://maps.google.com/maps/api/staticmap?${imgParams.toString()}`;
 
   document.getElementById('root').innerHTML = `
-    <h1 class="f2 f1-m f-subheadline-l lh-title mv4 mv5-l ph4 ph5-l">${currentRow[3]}</h1>
-    <a href="${getGMapsLink(lat, lng)}">
-      <img
-        class="h-auto"
-        src="https://maps.google.com/maps/api/staticmap?${imgParams.toString()}"
-        width="640"
-        height="427">
-    </a>
-    <ul class="list ph4 ph6-l mv4 mv5-l tl lh-copy mw8">
-      ${rows
+    <div class="flex flex-column">
+      <a class="order-1-ns mv4-ns" href="${current['Google Maps Link']}">
+        <img
+          class="h-auto"
+          src="${staticMapImage}"
+          width="640"
+          height="480">
+      </a>
+      <h1 class="f2 f1-m f-subheadline-l lh-title mv4 mv5-l ph4 ph5-l mw8 center">
+        ${current.Emoji}<br />
+        ${current.Address}
+      </h1>
+    </div>
+    <ul class="list ph4 ph5-l mv4 mv5-l tl lh-copy mw8 center">
+      ${records
         .map(
-          row =>
+          r =>
             `<li class="mt4 f3-l">
-              <a class="link color-inherit" href="${getGMapsLink(row[1], row[2])}">
-                <b class="near-white">${row[3]}</b><br />
-                ${formatShittyDate(row)}
+              <a class="link color-inherit" href="${r['Google Maps Link']}">
+                <span>${r.Emoji} </span>
+                <b class="near-white">${r.Address}</b><br />
+                ${moment(r.Date).calendar(null, { sameElse: 'MMMM D, YYYY' })}
               </a>
             </li>`,
         )

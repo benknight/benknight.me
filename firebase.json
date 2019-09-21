@@ -18,6 +18,16 @@
           "value": "public, max-age=0, must-revalidate"
         }]
       }
+    ],
+    "rewrites": [
+      {
+       "source": "/getLocations",
+       "function": "getLocations"
+      },
+      {
+       "source": "/postLocation",
+       "function": "postLocation"
+      }
     ]
   }
 }

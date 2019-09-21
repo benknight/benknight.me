@@ -3,7 +3,7 @@
   "name": "benknight",
   "version": "1.0.0",
   "scripts": {
-    "start": "firebase serve --only hosting",
+    "start": "firebase serve",
     "deploy": "firebase deploy"
   },
   "dependencies": {
