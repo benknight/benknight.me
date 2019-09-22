@@ -63,9 +63,9 @@ exports.postLocation = Functions.https.onRequest(async (request, response) => {
         },
       },
     ]);
-    return response.json(records.map(r => r.fields)).send();
+    response.json(records.map(r => r.fields)).send();
   } catch (error) {
     console.error(error);
-    return response.status(500).end();
+    response.status(500).end();
   }
 });
