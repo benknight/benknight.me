@@ -19,13 +19,7 @@
         "source": "**"
       }
     ],
-    "redirects": [
-      {
-        "destination": "https://airtable.com/shrDFa0a0ErGTsqAr",
-        "source": "/photos",
-        "type": 302
-      }
-    ],
+    "redirects": [],
     "rewrites": [
       {
        "source": "/getLocations",
