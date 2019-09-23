@@ -1,6 +1,19 @@
 const mapBoxToken =
   'pk.eyJ1IjoiYmVua25pZ2h0IiwiYSI6ImNrMHVnbGFyeTBoM3UzY21pcWJid3ZlYzYifQ.-Mv5-BnFs38Zy2RAsvGkcQ';
 
+function formatDate(input) {
+  const date = moment(input);
+  return moment(input).calendar(null, {
+    sameElse: function(now) {
+      const fromNow = this.fromNow();
+      if (this.years() === now.years()) {
+        return `MMMM D · [${fromNow}]`;
+      }
+      return `LL · [${fromNow}]`;
+    },
+  });
+}
+
 axios.get('/getLocations').then(response => {
   const records = response.data;
   const current = records[0];
@@ -28,7 +41,7 @@ axios.get('/getLocations').then(response => {
               <a class="link color-inherit" href="${r['Google Maps Link']}">
                 <span>${r.Emoji} </span>
                 <b class="near-white">${r.Address}</b><br />
-                ${moment(r.Date).calendar(null, { sameElse: 'MMMM D, YYYY' })}
+                ${formatDate(r.Date)}
               </a>
             </li>`,
         )
