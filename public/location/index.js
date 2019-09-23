@@ -37,9 +37,9 @@ axios.get('/getLocations').then(response => {
       ${records
         .map(
           r =>
-            `<li class="mt4 f3-l">
-              <a class="link color-inherit" href="${r['Google Maps Link']}">
-                <span>${r.Emoji} </span>
+            `<li class="mt4 mt5-l f3-ns tc-ns">
+              <a class="dib link color-inherit" href="${r['Google Maps Link']}">
+                <span class="emoji f3-m f2-l">${r.Emoji}</span><br />
                 <b class="near-white">${r.Address}</b><br />
                 ${formatDate(r.Date)}
               </a>
