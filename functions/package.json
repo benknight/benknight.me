@@ -1,6 +1,5 @@
 {
   "private": true,
-  "name": "benknight-functions",
   "scripts": {
     "lint": "eslint .",
     "serve": "firebase serve --only functions",

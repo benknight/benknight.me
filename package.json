@@ -1,7 +1,5 @@
 {
   "private": true,
-  "name": "benknight",
-  "version": "1.0.0",
   "scripts": {
     "start": "firebase serve --only hosting --host 0.0.0.0",
     "start-all": "firebase serve",
