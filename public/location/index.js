@@ -6,7 +6,7 @@ function formatDate(input) {
   return moment(input).calendar(null, {
     sameElse: function(now) {
       const fromNow = this.fromNow();
-      if (this.years() === now.years()) {
+      if (this.year() === now.year()) {
         return `MMMM D · [${fromNow}]`;
       }
       return `LL · [${fromNow}]`;
