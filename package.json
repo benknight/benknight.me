@@ -1,11 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "firebase serve --only hosting --host 0.0.0.0",
-    "start-all": "firebase serve",
-    "deploy": "firebase deploy"
+    "start": "firebase serve --only hosting --host 0.0.0.0"
   },
-  "dependencies": {
-    "firebase-tools": "^7.3.2"
-  }
+  "dependencies": {}
 }
