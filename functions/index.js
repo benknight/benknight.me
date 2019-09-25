@@ -1,25 +1,14 @@
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/Functions/write-firebase-Functions
-// const admin = require('firebase-admin');
-// const Functions = require('firebase-functions');
-//
-// admin.initializeApp();
-//
-// exports.helloWorld = Functions.https.onRequest((request, response) => {
-//   response.send('Hello from Firebase!');
-// });
-
 const Airtable = require('airtable');
-const Functions = require('firebase-functions');
-const GoogleMaps = require('@google/maps');
 const { flag } = require('country-emoji');
+const { https, config } = require('firebase-functions');
+const Maps = require('@google/maps');
 
-const airtableKey = Functions.config().airtable.api_key;
-const googleKey = Functions.config().google.server_key;
+const airtableKey = config().airtable.api_key;
+const googleKey = config().google.server_key;
 const base = new Airtable({ apiKey: airtableKey }).base('app42Tz6LNdfUEXBP');
-const mapsClient = GoogleMaps.createClient({ key: googleKey, Promise });
+const mapsClient = Maps.createClient({ key: googleKey, Promise });
 
-exports.getLocations = Functions.https.onRequest(async (request, response) => {
+exports.getLocations = https.onRequest(async (request, response) => {
   try {
     const records = await base('Location')
       .select({ sort: [{ field: 'Date', direction: 'desc' }] })
@@ -31,7 +20,7 @@ exports.getLocations = Functions.https.onRequest(async (request, response) => {
   }
 });
 
-exports.postLocation = Functions.https.onRequest(async (request, response) => {
+exports.postLocation = https.onRequest(async (request, response) => {
   const { lat, lng } = request.body;
   if (!lat || !lng) {
     response.status(400).end();
