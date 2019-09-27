@@ -27,10 +27,12 @@ module.exports = https.onRequest(async (request, response) => {
         states: [
           {
             selector: 'd073d514ccfb', // strip
+            power: 'on',
             color: colors[dayOfWeek],
           },
           {
             selector: 'd073d5235663', // table
+            power: 'on',
             color: colors[(dayOfWeek + 1) % 7],
           },
         ],
