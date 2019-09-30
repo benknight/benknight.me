@@ -1,12 +1,14 @@
 const airtable = require('airtable');
+const axios = require('axios');
 const { flag } = require('country-emoji');
 const { https, config } = require('firebase-functions');
 const maps = require('@google/maps');
 
-const airtableKey = config().airtable.api_key,
-  googleKey = config().google.server_key,
-  base = new airtable({ apiKey: airtableKey }).base('app42Tz6LNdfUEXBP'),
-  mapsClient = maps.createClient({ key: googleKey, Promise });
+const airtableKey = config().airtable.api_key;
+const googleKey = config().google.server_key;
+const iftttKey = config().ifttt.maker_key;
+const base = new airtable({ apiKey: airtableKey }).base('app42Tz6LNdfUEXBP');
+const mapsClient = maps.createClient({ key: googleKey, Promise });
 
 module.exports = https.onRequest(async (request, response) => {
   const { lat, lng } = request.body;
@@ -29,17 +31,23 @@ module.exports = https.onRequest(async (request, response) => {
     );
     const country = results.find(r => r.types.indexOf('country') !== -1);
     const address = (locality || adminAreaL1).formatted_address;
+    const formatted_address = (locality || adminAreaL1).formatted_address;
+    const emoji = country && flag(country.formatted_address);
     const records = await base('Location').create([
       {
         fields: {
           Date: new Date().toISOString(),
           Lat: lat,
           Lng: lng,
-          Address: (locality || adminAreaL1).formatted_address,
-          Emoji: country && flag(country.formatted_address),
+          Address: formatted_address,
+          Emoji: emoji,
         },
       },
     ]);
+    await axios.post(
+      `https://maker.ifttt.com/trigger/new_location/with/key/${iftttKey}`,
+      { value1: `${formatted_address} ${emoji}` },
+    );
     response.json(records.map(r => r.fields)).send();
   } catch (error) {
     console.error(error);
