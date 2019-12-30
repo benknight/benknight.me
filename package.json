@@ -3,6 +3,5 @@
   "scripts": {
     "start": "firebase serve --only hosting --host 0.0.0.0",
     "deploy": "firebase deploy --only hosting"
-  },
-  "dependencies": {}
+  }
 }
