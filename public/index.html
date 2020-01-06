@@ -11,7 +11,7 @@
         -webkit-font-smoothing: subpixel-antialiased;
         min-height: 100%;
         font-size: 11px;
-        line-height: 2.5;
+        line-height: 3.5;
         text-transform: uppercase;
         letter-spacing: 10px;
       }
@@ -25,7 +25,12 @@
         justify-content: center;
         height: 100vh;
         min-width: 375px;
-        font-weight: 100;
+      }
+
+      @media screen and (min-width: 30em) {
+        body {
+          font-weight: 100;
+        }
       }
 
       picture {
@@ -76,7 +81,7 @@
       <li><a href="/location" rel="author">Location</a></li>
       <li><a href="/photos" rel="author">Photos</a></li>
       <li><a href="/projects" rel="author">Projects</a></li>
-      <li><a href="https://toptal.com/resume/benjamin-knight" rel="author">Portfolio</a></li>
+      <li><a href="https://toptal.com/resume/benjamin-knight" rel="author">CV</a></li>
     </ul>
   </body>
 </html>
