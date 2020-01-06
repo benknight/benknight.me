@@ -1,17 +1,19 @@
 import { Link, graphql } from 'gatsby';
-import _kebabCase from 'lodash/kebabCase';
+import moment from 'moment';
 import React from 'react';
-import Page from '../components/Page';
+import Helmet from 'react-helmet';
 
 export const query = graphql`
-  query {
+  {
     posts: allTrelloCard(
-      filter: { idList: { eq: "5e09f1a3d44af374c6220f60" }, dueComplete: { eq: true } }
+      filter: { dueComplete: { eq: true } }
+      sort: { fields: due, order: DESC }
     ) {
       edges {
         node {
           id
           name
+          slug
           due
           dueComplete
           childMarkdownRemark {
@@ -26,19 +28,27 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({ data: { posts } }) => {
+export default ({ data: { posts } }) => {
   return (
-    <Page>
-      {posts.edges.map(({ node: post }) => (
-        <Link
-          className="db link white tc f3"
-          key={post.id}
-          to={`/${_kebabCase(post.name)}`}>
-          {post.name}
-        </Link>
-      ))}
-    </Page>
+    <>
+      <Helmet>
+        <title>Thoughts</title>
+      </Helmet>
+      <div className="pv4 mw6 center">
+        {posts.edges.map(({ node: post }) => (
+          <Link
+            className="link color-inherit db tc pa4 link"
+            key={post.id}
+            to={`/${post.slug}`}>
+            <div className="h2 ma0">{post.name}</div>
+            <small className="db mt2 tc">
+              {moment(post.due).format('LL')}
+              <span className="mh2">&middot;</span>
+              {post.labels.map(label => label.name).join(',')}
+            </small>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 };
-
-export default IndexPage;

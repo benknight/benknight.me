@@ -30,17 +30,35 @@ module.exports = {
     //     icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
     //   },
     // },
+    // {
+    //   resolve: 'gatsby-source-trello',
+    //   options: {
+    //     teamId: process.env.TRELLO_TEAM_ID,
+    //     apiKey: process.env.TRELLO_KEY,
+    //     secret: process.env.TRELLO_SECRET,
+    //   },
+    // },
+    'gatsby-transformer-remark',
     {
-      resolve: 'gatsby-source-trello',
+      resolve: 'gatsby-plugin-postcss',
       options: {
-        teamId: process.env.TRELLO_TEAM_ID,
-        apiKey: process.env.TRELLO_KEY,
-        secret: process.env.TRELLO_SECRET,
+        postCssPlugins: [
+          require('postcss-custom-media')({
+            importFrom: ['node_modules/tachyons/src/_media-queries.css'],
+          }),
+        ],
       },
     },
-    'gatsby-transformer-remark',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-remote-images',
+      options: {
+        nodeType: 'TrelloCard',
+        imagePath: 'coverImageUrl',
+        name: 'coverImageLocal',
+      },
+    },
   ],
 };

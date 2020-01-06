@@ -3,9 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />
-    <title>Current Location – Benjamin Knight</title>
-    <link href="/node_modules/tachyons/css/tachyons.min.css?v=4.11.1" rel="stylesheet">
+    <title>Location</title>
+    <link href="../node_modules/tachyons/css/tachyons.min.css?v=4.11.1" rel="stylesheet">
+    <link href="../dark-theme.css" rel="stylesheet" />
     <style>
+      html {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: 30em) {
+        html {
+          font-size: 22px;
+        }
+      }
+
       .emoji {
         display: inline-block;
         width: 4rem;
@@ -14,7 +25,7 @@
         line-height: 4.2rem;
         font-size: 2rem;
         text-align: center;
-        background: black;
+        background: var(--near-black);
         border-radius: 50%;
       }
 
@@ -22,8 +33,8 @@
         box-shadow: inset 0 0 0 2px hsl(200, 100%, 50%);
       }
     </style>
-    <script defer src="/node_modules/axios/dist/axios.min.js?v=0.19.0"></script>
-    <script defer src="/node_modules/moment/min/moment.min.js?v=2.24.0"></script>
+    <script defer src="../node_modules/axios/dist/axios.min.js?v=0.19.0"></script>
+    <script defer src="../node_modules/moment/min/moment.min.js?v=2.24.0"></script>
     <script defer>
       function formatDate(input) {
         const date = moment(input);
@@ -58,7 +69,7 @@
       });
     </script>
   </head>
-  <body class="avenir ma0 pa0 bg-near-black silver tc">
+  <body class="ma0 pa0 tc">
     <template>
       <li class="mt5">
         <a class="dib link color-inherit">
@@ -68,7 +79,7 @@
       </li>
     </template>
     <div id="loader" class="pa4">Loading...</div>
-    <ul id="root" class="dn list ph4 ph5-l ma0 tc lh-copy mw8 center f5 f3-ns">
+    <ul id="root" class="dn list ph4 ph5-l pb5 ma0 tc lh-copy mw8 center">
     </ul>
   </body>
 </html>

@@ -6,8 +6,7 @@
   },
   "hosting": {
     "public": "public",
-    "cleanUrls": true,
-    "trailingSlash": false,
+    "trailingSlash": true,
     "redirects": [],
     "ignore": [
       "firebase.json",
@@ -33,6 +32,13 @@
         "headers": [{
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }]
+      },
+      {
+        "source": "getLocations",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=500"
         }]
       },
       {

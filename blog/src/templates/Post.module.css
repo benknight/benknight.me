@@ -1,0 +1,25 @@
+.cover {
+  display: block;
+  width: calc(100% + 2rem);
+  max-height: 50vh;
+  margin-left: -1rem;
+}
+
+.content img {
+  width: calc(100% + 2rem);
+  margin: 0 -1rem;
+}
+
+.content blockquote {
+  font-size: 0.8rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--silver);
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+@media (--breakpoint-large) {
+  .content img {
+    margin: 0;
+    width: 100%;
+  }
+}
