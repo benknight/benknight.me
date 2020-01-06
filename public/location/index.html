@@ -36,17 +36,17 @@
     <script defer src="../node_modules/axios/dist/axios.min.js?v=0.19.0"></script>
     <script defer src="../node_modules/moment/min/moment.min.js?v=2.24.0"></script>
     <script defer>
-      function formatDate(input) {
-        const date = moment(input);
-        return moment(input).calendar(null, {
+      function formatDate(...input) {
+        const calendar = moment(input[0]).calendar(null, {
           sameElse: function(now) {
-            const fromNow = this.fromNow();
             if (this.year() === now.year()) {
-              return `MMMM D · [${fromNow}]`;
+              return 'MMMM D';
             }
-            return `LL · [${fromNow}]`;
+            return 'LL';
           },
         });
+        const days = Math.round(Math.max(1, moment(input[1]).diff(moment(input[0]), 'days', true)));
+        return `${calendar} · ${days} ${days > 1 ? 'days' : 'day'}`;
       }
 
       window.addEventListener('DOMContentLoaded', () => {
@@ -54,10 +54,10 @@
           const template = document.querySelector('template');
           const root = document.querySelector('#root');
 
-          records.forEach(record => {
+          records.forEach((record, index) => {
             const node = document.importNode(template.content, true);
             node.querySelector('a').setAttribute('href', record['Google Maps Link']);
-            node.querySelector('a').append(formatDate(record.Date));
+            node.querySelector('a').append(formatDate(record.Date, (records[index - 1] || {}).Date));
             node.querySelector('.emoji').textContent = record.Emoji;
             node.querySelector('b').textContent = record.Address;
             root.appendChild(node);
