@@ -35,7 +35,7 @@
         }]
       },
       {
-        "source": "getLocations",
+        "source": "/location",
         "headers": [{
           "key": "Cache-Control",
           "value": "max-age=500"
@@ -51,7 +51,7 @@
     ],
     "rewrites": [
       {
-        "source": "/getLocations",
+        "source": "/location",
         "function": "getLocations"
       },
       {
