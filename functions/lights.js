@@ -4,7 +4,7 @@ const moment = require('moment');
 
 const lifxToken = config().lifx.token;
 
-module.exports = https.onRequest(async (request, response) => {
+exports.sunsetLights = https.onRequest(async (request, response) => {
   const { sunset } = request.body;
   if (!sunset) {
     response.status(400).send('Sunset parameter missing');

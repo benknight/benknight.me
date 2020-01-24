@@ -1,6 +1,5 @@
-const getLocations = require('./getLocations');
-const postLocation = require('./postLocation');
-const sunsetLights = require('./sunsetLights');
+const { getLocations, postLocation } = require('./location');
+const { sunsetLights } = require('./lights');
 
 module.exports = {
   getLocations,
