@@ -8,7 +8,7 @@ const base = new airtable({ apiKey: airtableKey }).base('app42Tz6LNdfUEXBP');
 function formatDate(...input) {
   const calendar = moment(input[0]).calendar(null, {
     lastDay: '[Yesterday]',
-    lastWeek: '[last] dddd',
+    lastWeek: '[Last] dddd',
     sameDay: '[Today]',
     sameElse: function(now) {
       if (this.year() === now.year()) {
