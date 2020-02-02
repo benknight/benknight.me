@@ -3,31 +3,12 @@ const axios = require('axios');
 const { flag } = require('country-emoji');
 const { https, config } = require('firebase-functions');
 const maps = require('@google/maps');
-const moment = require('moment');
 
 const airtableKey = config().airtable.api_key;
 const googleKey = config().google.server_key;
 const iftttKey = config().ifttt.maker_key;
 const base = new airtable({ apiKey: airtableKey }).base('app42Tz6LNdfUEXBP');
 const mapsClient = maps.createClient({ key: googleKey, Promise });
-
-function formatDate(...input) {
-  const calendar = moment(input[0]).calendar(null, {
-    lastDay: '[Yesterday]',
-    lastWeek: '[Last] dddd',
-    sameDay: '[Today]',
-    sameElse: function(now) {
-      if (this.year() === now.year()) {
-        return 'MMMM D';
-      }
-      return 'LL';
-    },
-  });
-  const days = Math.round(
-    Math.max(1, moment(input[1]).diff(moment(input[0]), 'days', true)),
-  );
-  return `${calendar} · ${days} ${days > 1 ? 'days' : 'day'}`;
-}
 
 exports.getLocations = https.onRequest(async (request, response) => {
   try {
@@ -71,22 +52,54 @@ exports.getLocations = https.onRequest(async (request, response) => {
         box-shadow: inset 0 0 0 2px hsl(200, 100%, 50%);
       }
     </style>
+    <script src="/node_modules/moment/min/moment.min.js?v=2.24.0"></script>
   </head>
   <body class="ma0 pa0 tc">
     <ul id="root" class="list ph4 ph5-l pb5 ma0 tc lh-copy mw8 center">
       ${records
         .map(
-          (r, index) => `
+          r => `
       <li class="mt5">
         <a class="dib link color-inherit" href="${r['Google Maps Link']}">
           <span class="emoji">${r.Emoji}</span><br />
           <b class="near-white">${r.Address}</b><br />
-          ${formatDate(r.Date, (records[index - 1] || {}).Date)}
+          <time datetime="${r.Date}" />
         </a>
       </li>`,
         )
         .join('')}
     </ul>
+    <script>
+      function formatDate(...input) {
+        const calendar = moment(input[0]).calendar(null, {
+          // lastDay: '[Yesterday]',
+          // lastWeek: '[Last] dddd',
+          // sameDay: '[Today]',
+          sameElse: function(now) {
+            if (this.year() === now.year()) {
+              return 'MMMM D';
+            }
+            return 'LL';
+          },
+        });
+        const days = Math.round(
+          Math.max(1, moment(input[1]).diff(moment(input[0]), 'days', true)),
+        );
+        return \`\${calendar} · \${days} \${days > 1 ? 'days' : 'day'}\`;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const timeElements = document.body.querySelectorAll('time');
+        timeElements.forEach((node, index) => {
+          let prevDateTime;
+          const prevNode = timeElements[index - 1];
+          if (prevNode) {
+            prevDateTime = prevNode.getAttribute('datetime');
+          }
+          node.textContent = formatDate(node.getAttribute('datetime'), prevDateTime);
+        });
+      });
+    </script>
   </body>
 </html>
     `);
