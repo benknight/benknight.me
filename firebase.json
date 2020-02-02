@@ -61,6 +61,10 @@
       {
         "source": "/sunsetLights",
         "function": "sunsetLights"
+      },
+      {
+        "source": "/aftermarket-console/**",
+        "destination": "/aftermarket-console/index.html"
       }
     ]
   }

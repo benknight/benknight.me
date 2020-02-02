@@ -3,3 +3,4 @@ node_modules
 firebase-debug.log
 .runtimeconfig.json
 public/blog
+public/aftermarket-console
