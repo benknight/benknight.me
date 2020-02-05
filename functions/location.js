@@ -23,29 +23,10 @@ exports.getLocations = https.onRequest(async (request, response) => {
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />
     <title>Location</title>
-    <link href="/node_modules/tachyons/css/tachyons.min.css?v=4.11.1" rel="stylesheet">
-    <link href="/dark-theme.css" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
     <style>
-      html {
-        font-size: 18px;
-      }
-
-      @media screen and (min-width: 30em) {
-        html {
-          font-size: 22px;
-        }
-      }
-
       .emoji {
-        display: inline-block;
-        width: 4rem;
-        height: 4rem;
-        margin-bottom: 1rem;
         line-height: 4.2rem;
-        font-size: 2rem;
-        text-align: center;
-        background: var(--near-black);
-        border-radius: 50%;
       }
 
       li:first-child .emoji {
@@ -54,15 +35,19 @@ exports.getLocations = https.onRequest(async (request, response) => {
     </style>
     <script src="/node_modules/moment/min/moment.min.js?v=2.24.0"></script>
   </head>
-  <body class="ma0 pa0 tc">
-    <ul id="root" class="list ph4 ph5-l pb5 ma0 tc lh-copy mw8 center">
+  <body class="text-center">
+    <ul id="root" class="px-8 px16-l pb-16 m-0 m-auto">
       ${records
         .map(
           r => `
-      <li class="mt5">
-        <a class="dib link color-inherit" href="${r['Google Maps Link']}">
-          <span class="emoji">${r.Emoji}</span><br />
-          <b class="near-white">${r.Address}</b><br />
+      <li class="mt-16">
+        <a class="inline-block" href="${r['Google Maps Link']}">
+          <span class="emoji bg-gray-200 dark:bg-black inline-block w-16 h-16 mb-4 text-3xl text-center rounded-full">
+            ${r.Emoji}
+          </span>
+          <br />
+          <b>${r.Address}</b>
+          <br />
           <time datetime="${r.Date}" />
         </a>
       </li>`,

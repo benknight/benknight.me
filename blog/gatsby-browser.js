@@ -3,6 +3,4 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import './node_modules/tachyons/src/_normalize.css';
-import '../public/dark-theme.css';
-import './src/styles/tachyons.css';
+import '../public/style.css';

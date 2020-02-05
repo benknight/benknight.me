@@ -34,16 +34,16 @@ export default ({ data: { posts } }) => {
       <Helmet>
         <title>Thoughts</title>
       </Helmet>
-      <div className="pv4 mw6 center">
+      <div className="py-4 max-w-xl m-auto">
         {posts.edges.map(({ node: post }) => (
           <Link
-            className="link color-inherit db tc pa4 link"
+            className="block text-center p-4 typography"
             key={post.id}
             to={`/${post.slug}`}>
-            <div className="h2 ma0">{post.name}</div>
-            <small className="db mt2 tc">
+            <h2 className="m-0">{post.name}</h2>
+            <small className="block mt-2 text-center">
               {moment(post.due).format('LL')}
-              <span className="mh2">&middot;</span>
+              <span className="mx-2">&middot;</span>
               {post.labels.map(label => label.name).join(',')}
             </small>
           </Link>

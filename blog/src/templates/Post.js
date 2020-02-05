@@ -33,27 +33,25 @@ export default ({ data: { post } }) => {
       <Helmet>
         <title>{post.name}</title>
       </Helmet>
-      <div className="post ph3">
-        {post.coverImageLocal && (
-          <Img
-            alt=""
-            className={styles.cover}
-            fluid={post.coverImageLocal.childImageSharp.fluid}
-            objectFit="cover"
-          />
-        )}
-        <div className="pv4 measure-wide center">
-          <h1 className="mb0 ph3 tc">{post.name}</h1>
-          <small className="db mt2 mb4 tc">
-            {moment(post.due).format('LL')}
-            <span className="mh2 white">&middot;</span>
-            {post.labels.map(label => label.name).join(',')}
-          </small>
-          <div
-            className={`${styles.content} user-html`}
-            dangerouslySetInnerHTML={{ __html: post.childMarkdownRemark.html }}
-          />
-        </div>
+      {post.coverImageLocal && (
+        <Img
+          alt=""
+          className={`${styles.cover} block`}
+          fluid={post.coverImageLocal.childImageSharp.fluid}
+          objectFit="cover"
+        />
+      )}
+      <div className="py-8 px-3 max-w-xl m-auto typography">
+        <h1 className="px-3 mb-0 text-center">{post.name}</h1>
+        <small className="block mt-2 mb-8 text-center">
+          {moment(post.due).format('LL')}
+          <b className="mx-2">&middot;</b>
+          {post.labels.map(label => label.name).join(',') || 'Uncategorized'}
+        </small>
+        <div
+          className={`${styles.content}`}
+          dangerouslySetInnerHTML={{ __html: post.childMarkdownRemark.html }}
+        />
       </div>
     </>
   );

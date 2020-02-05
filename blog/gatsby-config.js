@@ -39,16 +39,6 @@ module.exports = {
     //   },
     // },
     'gatsby-transformer-remark',
-    {
-      resolve: 'gatsby-plugin-postcss',
-      options: {
-        postCssPlugins: [
-          require('postcss-custom-media')({
-            importFrom: ['node_modules/tachyons/src/_media-queries.css'],
-          }),
-        ],
-      },
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
@@ -58,6 +48,7 @@ module.exports = {
         nodeType: 'TrelloCard',
         imagePath: 'coverImageUrl',
         name: 'coverImageLocal',
+        // prepareUrl: url => url || null,
       },
     },
   ],

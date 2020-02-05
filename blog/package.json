@@ -8,7 +8,6 @@
     "gatsby-image": "^2.2.40",
     "gatsby-plugin-manifest": "^2.2.41",
     "gatsby-plugin-offline": "^3.0.34",
-    "gatsby-plugin-postcss": "^2.1.20",
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-remote-images": "^2.1.0",
     "gatsby-plugin-sharp": "^2.4.5",
@@ -16,20 +15,18 @@
     "gatsby-transformer-remark": "^2.6.50",
     "gatsby-transformer-sharp": "^2.3.14",
     "moment": "^2.24.0",
-    "postcss-custom-media": "^7.0.8",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "tachyons": "^4.11.1"
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
   },
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "start": "gatsby develop --prefix-paths",
-    "serve": "gatsby serve --prefix-paths",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",

@@ -59,11 +59,11 @@ exports.sourceNodes = async ({ actions }) => {
       const data = {
         ...card,
         slug: _.get(card, 'customFieldItems[0].value.text', _.kebabCase(card.name)),
-        // due: _.get(card, 'due', null),
-        // dueComplete: _.get(card, 'dueComplete', null),
-        coverImageUrl:
-          card.idAttachmentCover &&
-          card.attachments.find(a => a.id === card.idAttachmentCover).url,
+        due: card.due || new Date().toISOString(),
+        dueComplete: _.get(card, 'dueComplete', false),
+        coverImageUrl: card.idAttachmentCover
+          ? card.attachments.find(a => a.id === card.idAttachmentCover).url
+          : 'https://benknight.me/portrait-landscape.jpg',
       };
       const cardDigest = crypto
         .createHash('md5')
