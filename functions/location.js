@@ -26,7 +26,7 @@ exports.getLocations = https.onRequest(async (request, response) => {
     <link href="/style.css" rel="stylesheet" />
     <style>
       .emoji {
-        line-height: 4.2rem;
+        line-height: 4.1rem;
       }
 
       li:first-child .emoji {
@@ -36,6 +36,7 @@ exports.getLocations = https.onRequest(async (request, response) => {
     <script src="/node_modules/moment/min/moment.min.js?v=2.24.0"></script>
   </head>
   <body class="text-center">
+    <iframe class="w-full h-32" src="/colophon.html"></iframe>
     <ul id="root" class="px-8 px16-l pb-16 m-0 m-auto">
       ${records
         .map(

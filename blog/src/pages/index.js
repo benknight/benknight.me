@@ -34,10 +34,10 @@ export default ({ data: { posts } }) => {
       <Helmet>
         <title>Thoughts</title>
       </Helmet>
-      <div className="py-4 max-w-xl m-auto">
+      <div className="py-6 max-w-xl m-auto">
         {posts.edges.map(({ node: post }) => (
           <Link
-            className="block text-center p-4 typography"
+            className="block text-center px-4 py-6 typography"
             key={post.id}
             to={`/${post.slug}`}>
             <h2 className="m-0">{post.name}</h2>
