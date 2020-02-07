@@ -4,13 +4,7 @@ const moment = require('moment');
 
 const lifxToken = config().lifx.token;
 
-exports.sunsetLights = https.onRequest(async (request, response) => {
-  const { sunset } = request.body;
-  if (!sunset) {
-    response.status(400).send('Sunset parameter missing');
-    return;
-  }
-  const dayOfWeek = moment(sunset, 'MMMM D, YYYY').day();
+exports.prettyLights = https.onRequest(async (request, response) => {
   const colors = [
     'hue:0 saturation:1.0 brightness:0.5', // red
     'hue:35 saturation:1.0 brightness:0.5', // orange
@@ -20,6 +14,7 @@ exports.sunsetLights = https.onRequest(async (request, response) => {
     'hue:225 saturation:1.0 brightness:0.5', // indigo
     'hue:325 saturation:1.0 brightness:0.5', // hotpink
   ];
+  const randomIndex = Math.floor(Math.random() * colors.length);
   try {
     await axios.put(
       'https://api.lifx.com/v1/lights/states',
@@ -28,12 +23,12 @@ exports.sunsetLights = https.onRequest(async (request, response) => {
           {
             selector: 'd073d514ccfb', // strip
             power: 'on',
-            color: colors[dayOfWeek],
+            color: colors[randomIndex],
           },
           {
             selector: 'd073d5235663', // table
             power: 'on',
-            color: colors[(dayOfWeek + 1) % 7],
+            color: colors[(randomIndex + 1) % colors.length],
           },
         ],
       },
