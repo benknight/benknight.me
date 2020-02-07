@@ -41,5 +41,21 @@
         </li>
       </ul>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCR-DbShxSqAe9gAVEwoZxpbbs8ofEwFxo",
+        authDomain: "benknight-website.firebaseapp.com",
+        databaseURL: "https://benknight-website.firebaseio.com",
+        projectId: "benknight-website",
+        storageBucket: "benknight-website.appspot.com",
+        messagingSenderId: "46618137938",
+        appId: "1:46618137938:web:80bebcd66c8ed7aa04d68b",
+        measurementId: "G-3436TME345"
+      };
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>

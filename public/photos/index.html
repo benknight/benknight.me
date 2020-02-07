@@ -5,32 +5,35 @@
     <meta content="width=device-width" name="viewport" />
     <link href="../style.css" rel="stylesheet" />
     <title>Photos</title>
-    <style>
-      body {
-        text-align: center;
-        padding-top: 1rem;
-      }
-
-      body::after {
-        content: 'Loading...';
-      }
-
-      iframe {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-    </style>
   </head>
-  <body>
-    <iframe
-      frameborder="0"
-      height="100%"
-      onmousewheel=""
-      src="https://airtable.com/embed/shrDFa0a0ErGTsqAr?backgroundColor=gray"
-      width="100%">
-    </iframe>
+  <body class="w-screen h-screen flex flex-col">
+    <iframe class="w-full h-32" src="/colophon.html"></iframe>
+    <div class="relative w-full flex-auto text-center p-4">
+      Loading albums&hellip;
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        frameborder="0"
+        height="100%"
+        onmousewheel=""
+        src="https://airtable.com/embed/shrDFa0a0ErGTsqAr?backgroundColor=gray"
+        width="100%">
+      </iframe>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyCR-DbShxSqAe9gAVEwoZxpbbs8ofEwFxo",
+        authDomain: "benknight-website.firebaseapp.com",
+        databaseURL: "https://benknight-website.firebaseio.com",
+        projectId: "benknight-website",
+        storageBucket: "benknight-website.appspot.com",
+        messagingSenderId: "46618137938",
+        appId: "1:46618137938:web:80bebcd66c8ed7aa04d68b",
+        measurementId: "G-3436TME345"
+      };
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
