@@ -1,7 +1,7 @@
 module.exports = {
   important: true,
   theme: {
-    extend: {}
+    extend: {},
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'dark'],

@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "dependencies": {
+    "tailwindcss": "^1.1.4",
+    "tailwindcss-prefers-dark-mode": "^1.1.1"
+  },
+  "scripts": {
+    "tailwind": "npx tailwind build tailwind.css -o public/style.css"
+  }
+}
