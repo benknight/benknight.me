@@ -1,6 +1,7 @@
+/* purgecss start ignore */
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 html {
   font-size: 112.5%;
@@ -31,7 +32,7 @@ b {
   @apply text-blue-500 underline;
 }
 
-.typography a:visited { 
+.typography a:visited {
   @apply text-purple-600;
 }
 
@@ -59,7 +60,7 @@ b {
   .typography h2 { @apply text-3xl; }
   .typography h3 { @apply text-2xl; }
   .typography h4 { @apply text-xl; }
-  .typography h5 { @apply text-lg; }  
+  .typography h5 { @apply text-lg; }
 }
 
 .typography hr {
@@ -123,3 +124,7 @@ b {
     @apply bg-gray-700;
   }
 }
+
+/* purgecss end ignore */
+
+@tailwind utilities;

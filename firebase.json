@@ -6,8 +6,8 @@
   },
   "hosting": {
     "public": "public",
-    "trailingSlash": true,
-    "redirects": [],
+    "cleanUrls": true,
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*"
@@ -49,11 +49,19 @@
         }]
       }
     ],
-    "rewrites": [
+    "redirects": [
       {
-        "source": "/location",
-        "function": "getLocations"
+        "source": "/blog/:post*",
+        "destination": "/:post",
+        "type": 301
       },
+      {
+        "source": "/blog",
+        "destination": "/posts",
+        "type": 301
+      }
+    ],
+    "rewrites": [
       {
         "source": "/postLocation",
         "function": "postLocation"
