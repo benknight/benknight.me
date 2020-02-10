@@ -1,0 +1,38 @@
+{
+  "status":"ok",
+  "bids": [
+    {
+      "bid_id":58,
+      "account_id":4,
+      "bid_amount":1100,
+      "currency":"USD",
+      "bid_amount_usd":1100,
+      "bid_status":"Valid",
+      "is_proxy":false,
+      "timestamp":1532965137590,
+      "is_high_bidder":false
+    },
+    {
+      "bid_id":37,
+      "account_id":4,
+      "bid_amount":101,
+      "currency":"USD",
+      "bid_amount_usd":101,
+      "bid_status":"Valid",
+      "is_proxy":false,
+      "timestamp":1532965137590,
+      "is_high_bidder":false
+    },
+    {
+      "bid_id":11,
+      "account_id":4,
+      "bid_amount":15,
+      "currency":"USD",
+      "bid_amount_usd":15,
+      "bid_status":"Valid",
+      "is_proxy":false,
+      "timestamp":1532965137590,
+      "is_high_bidder":false
+    }
+  ]
+}
