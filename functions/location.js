@@ -1,5 +1,4 @@
 const airtable = require('airtable');
-const axios = require('axios');
 const { flag } = require('country-emoji');
 const { https, config } = require('firebase-functions');
 const maps = require('@google/maps');
@@ -44,10 +43,6 @@ exports.postLocation = https.onRequest(async (request, response) => {
         },
       },
     ]);
-    await axios.post(
-      `https://maker.ifttt.com/trigger/new_location/with/key/${iftttKey}`,
-      { value1: `${formatted_address} ${emoji}` },
-    );
     response.json(records.map(r => r.fields)).send();
   } catch (error) {
     console.error(error);
