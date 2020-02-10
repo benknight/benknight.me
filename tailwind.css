@@ -21,6 +21,11 @@ b {
 }
 
 @media (prefers-color-scheme: dark) {
+  html {
+    color: hsla(0, 0%, 100%, 0.75);
+    background-color: hsl(0, 0%, 11%);
+  }
+
   b {
     @apply text-white;
   }
@@ -98,11 +103,6 @@ b {
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color: hsla(0, 0%, 100%, 0.75);
-    background-color: hsl(0, 0%, 11%);
-  }
-
   .typography a {
     @apply text-blue-300;
   }

@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import avatar from '../../static/portrait-avatar.jpg';
 
-export default function Colophon(props) {
+export default function Colophon() {
   return (
     <div className="w-full h-32 flex items-center justify-center bg-blue-100 dark:bg-black p-4">
       <Link className="block flex-shrink-0" to="/" rel="author">

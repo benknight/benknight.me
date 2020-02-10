@@ -28,7 +28,7 @@ export const query = graphql`
   }
 `;
 
-export default ({ data: { post } }) => {
+export default function PostTemplate({ data: { post } }) {
   return (
     <>
       <Helmet>
@@ -59,4 +59,4 @@ export default ({ data: { post } }) => {
       <Colophon />
     </>
   );
-};
+}
