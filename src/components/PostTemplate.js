@@ -34,13 +34,14 @@ export default ({ data: { post } }) => {
       <Helmet>
         <title>{post.name}</title>
       </Helmet>
-      <Colophon />
       {post.coverImageLocal && (
         <Img
           alt=""
           className={`${styles.cover} block`}
           fluid={post.coverImageLocal.childImageSharp.fluid}
           objectFit="cover"
+          width="1600"
+          height="800"
         />
       )}
       <div className="py-8 px-3 max-w-xl m-auto typography">
@@ -55,6 +56,7 @@ export default ({ data: { post } }) => {
           dangerouslySetInnerHTML={{ __html: post.childMarkdownRemark.html }}
         />
       </div>
+      <Colophon />
     </>
   );
 };

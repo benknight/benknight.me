@@ -8,7 +8,7 @@ import 'firebase/analytics';
 import './tailwind.css';
 
 var firebaseConfig = {
-  apiKey: process.env.GATSBY_AIRBASE_API_KEY,
+  apiKey: process.env.GATSBY_FIREBASE_API_KEY,
   authDomain: 'benknight-website.firebaseapp.com',
   databaseURL: 'https://benknight-website.firebaseio.com',
   projectId: 'benknight-website',
