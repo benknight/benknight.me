@@ -23,7 +23,7 @@ export default function Colophon() {
           projects
         </Link>{' '}
         and I’m available{' '}
-        <a className="font-bold" href="https://toptal.com/resume/benjamin-knight">
+        <a className="font-bold" href="mailto:ben@benknight.me">
           for hire
         </a>
         . Sometimes I{' '}

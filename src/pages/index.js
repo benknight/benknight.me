@@ -43,14 +43,14 @@ export default function Index(props) {
               Projects
             </Link>
           </li>
-          <li className="my-6">
+          {/* <li className="my-6">
             <a
               href="https://toptal.com/resume/benjamin-knight"
               rel="author noopener noreferrer"
               target="_blank">
               CV
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </>
