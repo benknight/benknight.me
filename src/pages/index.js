@@ -29,11 +29,6 @@ export default function Index(props) {
             </Link>
           </li>
           <li className="my-6">
-            <Link to="/location" rel="author">
-              Location
-            </Link>
-          </li>
-          <li className="my-6">
             <Link to="/photos" rel="author">
               Photos
             </Link>
