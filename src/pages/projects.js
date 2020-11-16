@@ -9,7 +9,14 @@ export default function Projects() {
         <h1>Side Projects</h1>
         <ul>
           <li>
-            <a href="https://cocolist.vn">Cocolist</a> <em>2019</em>
+            <a href="https://vietnamcoracle.com">Vietnam Coracle</a> <em>2020-present</em>
+            <p>
+              I manage all technology for this popular blog for independent travel in
+              Vietnam.
+            </p>
+          </li>
+          <li>
+            <a href="https://cocolist.app">Cocolist</a> <em>2019</em>
             <p>
               Web app for finding eco-friendly businesses. Made with Airtable, Gatsby, and
               Firebase.
