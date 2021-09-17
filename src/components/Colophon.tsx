@@ -19,23 +19,31 @@ export default function Colophon() {
       <p className="max-w-lg ml-4 text-xs sm:text-sm md:text-base">
         I’m{' '}
         <Link href="/">
-          <a className="font-bold" rel="author">
+          <a
+            className="font-bold  text-blue-400 dark:text-blue-400 hover:underline"
+            rel="author">
             Benjamin Knight
           </a>
         </Link>
         . I’m a coder and designer. I work on some of my own{' '}
         <Link href="/projects">
-          <a className="font-bold" rel="author">
+          <a
+            className="font-bold  text-blue-400 dark:text-blue-400 hover:underline"
+            rel="author">
             projects
           </a>
         </Link>{' '}
         and I’m available{' '}
-        <a className="font-bold" href="mailto:ben@benknight.me">
+        <a
+          className="font-bold  text-blue-400 dark:text-blue-400 hover:underline"
+          href="mailto:ben@benknight.me">
           for hire
         </a>
         . Sometimes I{' '}
         <Link href="/location">
-          <a className="font-bold" rel="author">
+          <a
+            className="font-bold  text-blue-400 dark:text-blue-400 hover:underline"
+            rel="author">
             travel
           </a>
         </Link>
