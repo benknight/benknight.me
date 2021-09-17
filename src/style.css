@@ -33,16 +33,16 @@
 }
 
 @layer components {
-  li:first-child .emoji {
-    box-shadow: inset 0 0 0 2px hsl(200, 100%, 50%);
+  .link {
+    @apply text-blue-500 dark:text-blue-400 underline;
+  }
+
+  .link:visited {
+    @apply text-purple-600 dark:text-purple-500;
   }
 
   .typography a {
-    @apply text-blue-500 underline;
-  }
-
-  .typography a:visited {
-    @apply text-purple-600;
+    @apply link;
   }
 
   .typography blockquote {
@@ -55,7 +55,7 @@
   .typography h4,
   .typography h5,
   .typography h6 {
-    @apply text-black mb-6 leading-tight;
+    @apply text-black dark:text-white mb-6 leading-tight;
   }
 
   .typography h1 { @apply text-3xl; }
@@ -73,7 +73,7 @@
   }
 
   .typography hr {
-    @apply mb-6 bg-gray-400 h-px border-none;
+    @apply mb-6 bg-gray-400 dark:bg-gray-700 h-px border-none;
   }
 
   .typography p {
@@ -104,45 +104,5 @@
 
   .typography ul {
     @apply list-disc;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .typography a {
-      @apply text-blue-400;
-    }
-
-    .typography a:visited {
-      @apply text-purple-500;
-    }
-
-    .typography h1,
-    .typography h2,
-    .typography h3,
-    .typography h4,
-    .typography h5,
-    .typography h6 {
-      @apply text-white;
-    }
-
-    .typography hr {
-      @apply bg-gray-700;
-    }
-  }
-
-  .cover {
-    max-height: 50vh;
-  }
-
-  .content img {
-    max-width: none;
-    width: calc(100% + 1.5rem);
-    margin: 0 -0.75rem;
-  }
-
-  @media (min-width: 1024px) {
-    .content img {
-      margin: 0;
-      width: 100%;
-    }
   }
 }

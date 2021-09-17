@@ -2,13 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Helmet from 'react-helmet';
 
+const linkClassName = '';
+
 export default function Index() {
   return (
     <>
       <Helmet>
         <title>benknight.me</title>
       </Helmet>
-      <div className="relative w-screen h-screen flex flex-col items-center justify-center sm:font-light text-gray-400">
+      <div className="relative w-screen h-screen flex flex-col items-center justify-center sm:font-light text-white antialiased text-opacity-30">
         <div className="absolute top-0 left-0 w-full h-full">
           <Image
             alt=""
@@ -26,26 +28,34 @@ export default function Index() {
           />
         </div>
         <ul
-          className="relative uppercase leading-10 text-center"
+          className="relative uppercase leading-9 text-center"
           style={{ letterSpacing: '10px' }}>
           <li className="my-6">
             <Link href="/location">
-              <a rel="author">Location</a>
+              <a className={linkClassName} rel="author">
+                Location
+              </a>
             </Link>
           </li>
           <li className="my-6">
             <Link href="/posts">
-              <a rel="author">Thoughts</a>
+              <a className={linkClassName} rel="author">
+                Thoughts
+              </a>
             </Link>
           </li>
           <li className="my-6">
             <Link href="/photos">
-              <a rel="author">Photos</a>
+              <a className={linkClassName} rel="author">
+                Photos
+              </a>
             </Link>
           </li>
           <li className="my-6">
             <Link href="/projects">
-              <a rel="author">Projects</a>
+              <a className={linkClassName} rel="author">
+                Projects
+              </a>
             </Link>
           </li>
           {/* <li className="my-6">

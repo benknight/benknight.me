@@ -1,11 +1,12 @@
+declare type TrelloCustomField = {
+  id: string,
+  value: {
+    text: string,
+  },
+};
+
 declare type TrelloCard = {
-  customFieldItems: [
-    {
-      value: {
-        text: string,
-      },
-    },
-  ],
+  customFieldItems: TrelloCustomField[],
   desc: string,
   due: string,
   dueComplete: boolean,

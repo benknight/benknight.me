@@ -59,7 +59,7 @@ export default function Location({
   return (
     <>
       <Colophon />
-      <ul id="root" className="px-8 px16-l pb-16 m-auto text-center">
+      <ul id="root" className="px-8 lg:px-16 pb-16 m-auto text-center">
         {locations
           .sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime())
           .map((location, index) => {
@@ -67,7 +67,11 @@ export default function Location({
             return (
               <li className="mt-16" key={location.Date}>
                 <a className="inline-block" href={location['Google Maps Link']}>
-                  <span className="emoji bg-gray-200 dark:bg-black inline-block w-16 h-16 mb-4 text-3xl leading-[4.1rem] text-center rounded-full">
+                  <span
+                    className="bg-gray-200 dark:bg-black inline-block w-16 h-16 mb-4 text-3xl leading-[4.1rem] text-center rounded-full"
+                    style={{
+                      boxShadow: index === 0 ? 'inset 0 0 0 2px hsl(200, 100%, 50%)' : '',
+                    }}>
                     {location.Emoji}
                   </span>
                   <br />
