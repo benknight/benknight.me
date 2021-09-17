@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 112.5%;
+    line-height: 1.4;
+    color: hsla(0, 0%, 0%, 0.75);
+  }
+
+  @screen lg {
+    html {
+      font-size: 150%;
+      line-height: 1.5;
+    }
+  }
+
+  b {
+    @apply text-black;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color: hsla(0, 0%, 100%, 0.75);
+      background-color: hsl(0, 0%, 11%);
+    }
+
+    b {
+      @apply text-white;
+    }
+  }
+}
+
+@layer components {
+  li:first-child .emoji {
+    box-shadow: inset 0 0 0 2px hsl(200, 100%, 50%);
+  }
+
+  .typography a {
+    @apply text-blue-500 underline;
+  }
+
+  .typography a:visited {
+    @apply text-purple-600;
+  }
+
+  .typography blockquote {
+    @apply text-sm pl-4 border-l opacity-75;
+  }
+
+  .typography h1,
+  .typography h2,
+  .typography h3,
+  .typography h4,
+  .typography h5,
+  .typography h6 {
+    @apply text-black mb-6 leading-tight;
+  }
+
+  .typography h1 { @apply text-3xl; }
+  .typography h2 { @apply text-2xl mt-12; }
+  .typography h3 { @apply text-xl; }
+  .typography h4 { @apply text-lg; }
+  .typography h5 { @apply text-base; }
+
+  @screen sm {
+    .typography h1 { @apply text-4xl; }
+    .typography h2 { @apply text-3xl; }
+    .typography h3 { @apply text-2xl; }
+    .typography h4 { @apply text-xl; }
+    .typography h5 { @apply text-lg; }
+  }
+
+  .typography hr {
+    @apply mb-6 bg-gray-400 h-px border-none;
+  }
+
+  .typography p {
+    @apply mb-6;
+  }
+
+  .typography li {
+    @apply mb-3;
+  }
+
+  .typography li > ol,
+  .typography li > ul {
+    @apply ml-6 my-3;
+  }
+
+  .typography li > p {
+    @apply mb-3;
+  }
+
+  .typography ol,
+  .typography ul {
+    @apply pl-4 mr-6 mb-6;
+  }
+
+  .typography ol {
+    @apply list-decimal;
+  }
+
+  .typography ul {
+    @apply list-disc;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .typography a {
+      @apply text-blue-400;
+    }
+
+    .typography a:visited {
+      @apply text-purple-500;
+    }
+
+    .typography h1,
+    .typography h2,
+    .typography h3,
+    .typography h4,
+    .typography h5,
+    .typography h6 {
+      @apply text-white;
+    }
+
+    .typography hr {
+      @apply bg-gray-700;
+    }
+  }
+
+  .cover {
+    max-height: 50vh;
+  }
+
+  .content img {
+    max-width: none;
+    width: calc(100% + 1.5rem);
+    margin: 0 -0.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    .content img {
+      margin: 0;
+      width: 100%;
+    }
+  }
+}

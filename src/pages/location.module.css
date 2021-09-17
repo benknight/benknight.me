@@ -1,7 +1,0 @@
-.emoji {
-  line-height: 4.1rem;
-}
-
-li:first-child .emoji {
-  box-shadow: inset 0 0 0 2px hsl(200, 100%, 50%);
-}

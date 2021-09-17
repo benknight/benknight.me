@@ -1,25 +1,18 @@
 module.exports = {
+  darkMode: 'media', // or 'media' or 'class'
   important: true,
+  mode: 'jit',
+  plugins: [],
+  purge: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        landscape: { raw: '(orientation: landscape)' },
+        portrait: { raw: '(orientation: portrait)' },
+      },
+    },
   },
   variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'dark'],
-    borderColor: ['responsive', 'hover', 'focus', 'dark'],
-    textColor: ['responsive', 'hover', 'focus', 'dark'],
+    extend: {},
   },
-  plugins: [
-    // docs: https://github.com/javifm86/tailwindcss-prefers-dark-mode
-    // variants generated:
-    // dark
-    // dark:hover
-    // dark:focus
-    // dark:active
-    // dark:disabled
-    // dark:odd
-    // dark:even
-    // dark:group-hover
-    // dark:focus-within
-    require('tailwindcss-prefers-dark-mode')(),
-  ],
 };
