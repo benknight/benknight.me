@@ -33,11 +33,13 @@ export async function getStaticProps({ params: { slug } }) {
 export async function getStaticPaths() {
   const posts = await fetchPosts();
   return {
-    paths: posts.map((item: any) => ({
-      params: {
-        slug: getPostSlug(item),
-      },
-    })),
+    paths: posts
+      .filter(item => item.dueComplete)
+      .map((item: any) => ({
+        params: {
+          slug: getPostSlug(item),
+        },
+      })),
     fallback: false,
   };
 }
