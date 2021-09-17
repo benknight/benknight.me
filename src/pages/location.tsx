@@ -31,6 +31,7 @@ export async function getStaticProps() {
     props: {
       locations,
     },
+    revalidate: 1,
   };
 }
 
