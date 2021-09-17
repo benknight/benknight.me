@@ -29,6 +29,11 @@ export default function Index() {
           className="relative uppercase leading-10 text-center"
           style={{ letterSpacing: '10px' }}>
           <li className="my-6">
+            <Link href="/location">
+              <a rel="author">Location</a>
+            </Link>
+          </li>
+          <li className="my-6">
             <Link href="/posts">
               <a rel="author">Thoughts</a>
             </Link>
