@@ -86,7 +86,7 @@
 
   .typography li > ol,
   .typography li > ul {
-    @apply ml-6 my-3;
+    @apply ml-6 my-3 mr-0;
   }
 
   .typography li > p {
