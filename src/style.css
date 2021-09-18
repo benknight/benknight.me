@@ -45,6 +45,11 @@
     @apply link;
   }
 
+  .typography b,
+  .typography strong {
+    @apply text-black dark:text-white;
+  }
+
   .typography blockquote {
     @apply text-sm pl-4 border-l opacity-75;
   }
