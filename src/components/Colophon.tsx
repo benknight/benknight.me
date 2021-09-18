@@ -11,7 +11,7 @@ export default function Colophon() {
           rel="author">
           <Image
             alt="Portrait of Benjamin Knight"
-            className="rounded-full"
+            className="rounded-full filter brightness-150"
             layout="fill"
             src={avatar}
           />
@@ -20,19 +20,19 @@ export default function Colophon() {
       <p className="max-w-lg ml-4 text-xs sm:text-sm md:text-base">
         I’m{' '}
         <Link href="/">
-          <a className="font-bold no-underline link" rel="author">
+          <a className="font-bold" rel="author">
             Benjamin Knight
           </a>
         </Link>
         . I’m a coder and designer. I work on some of my own{' '}
         <Link href="/projects">
-          <a className="font-bold no-underline link" rel="author">
+          <a className="font-bold" rel="author">
             projects
           </a>
         </Link>{' '}
         and I’m available for hire. Sometimes I{' '}
         <Link href="/location">
-          <a className="font-bold no-underline link" rel="author">
+          <a className="font-bold" rel="author">
             travel
           </a>
         </Link>
