@@ -68,10 +68,9 @@ export default function Location({
               <li className="mt-16" key={location.Date}>
                 <a className="inline-block" href={location['Google Maps Link']}>
                   <span
-                    className="bg-gray-200 dark:bg-black inline-block w-16 h-16 mb-4 text-3xl leading-[4.1rem] text-center rounded-full"
-                    style={{
-                      boxShadow: index === 0 ? 'inset 0 0 0 2px hsl(200, 100%, 50%)' : '',
-                    }}>
+                    className={`bg-gray-100 dark:bg-black dark:bg-opacity-50 inline-block w-16 h-16 mb-4 text-3xl leading-[4.1rem] text-center rounded-full ${
+                      index === 0 ? 'ring ring-blue-500 dark:ring-blue-400' : ''
+                    }`}>
                     {location.Emoji}
                   </span>
                   <br />
