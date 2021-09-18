@@ -65,7 +65,7 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
       )} */}
       <Colophon />
       <div className="py-8 px-3 max-w-xl m-auto typography">
-        <h1 className="px-3 mb-0 text-center">{post.title}</h1>
+        <h1 className="mb-0 text-center">{post.title}</h1>
         {post.date && (
           <small className="block mt-2 text-center">
             {moment(post.date).format('LL')}
@@ -73,7 +73,10 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
             {post.labels.join(',') || 'Uncategorized'}
           </small>
         )}
-        <div className="mt-8" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          className="mt-8 break-words"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </div>
     </>
   );
