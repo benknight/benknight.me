@@ -30,7 +30,13 @@ export default function Colophon() {
             projects
           </a>
         </Link>{' '}
-        and I’m available for hire. Sometimes I{' '}
+        and I’m available{' '}
+        <Link href="/resume">
+          <a className="font-bold" rel="author">
+            for hire
+          </a>
+        </Link>
+        . Sometimes I{' '}
         <Link href="/location">
           <a className="font-bold" rel="author">
             travel
