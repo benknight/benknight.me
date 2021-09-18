@@ -8,19 +8,22 @@ import { getPostSlug } from '../lib/utils';
 import { fetchPosts } from '../lib/TrelloClient';
 
 export async function getStaticProps({ params: { slug } }) {
+  let post: Post;
   const posts = await fetchPosts();
   const item = posts.find(item => slug === getPostSlug(item));
-  const post: Post = {
-    date: item.due,
-    id: item.id,
-    labels: item.labels.map(label => label.name),
-    html: (
-      await remark()
-        .use(html, { sanitize: false })
-        .process(item.desc)
-    ).toString(),
-    title: item.name,
-  };
+  if (item) {
+    post = {
+      date: item.due,
+      id: item.id,
+      labels: item.labels.map(label => label.name),
+      html: (
+        await remark()
+          .use(html, { sanitize: false })
+          .process(item.desc)
+      ).toString(),
+      title: item.name,
+    };
+  }
   return {
     notFound: !post,
     props: {
