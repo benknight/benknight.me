@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import avatar from '../../public/portrait-avatar.jpg';
 
 export default function Colophon() {
   return (
@@ -12,7 +13,7 @@ export default function Colophon() {
             alt="Portrait of Benjamin Knight"
             className="rounded-full"
             layout="fill"
-            src="/portrait-avatar.jpg"
+            src={avatar}
           />
         </a>
       </Link>
