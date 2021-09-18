@@ -35,12 +35,12 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
       <div className="py-6 max-w-xl m-auto">
         {posts.map(post => (
           <Link key={post.id} href={`/${post.slug}`}>
-            <a className="block text-center px-4 py-6 typography">
-              <h2 className="m-0">{post.title}</h2>
+            <a className="block text-center px-4 py-10 typography">
+              <h3 className="m-0 !leading-7">{post.title}</h3>
               <small className="block mt-2 text-center">
                 {moment(post.date).format('LL')}
                 <span className="mx-2">&middot;</span>
-                {post.labels.join(',')}
+                {post.labels.join(',') || 'Uncategorized'}
               </small>
             </a>
           </Link>
