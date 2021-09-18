@@ -4,9 +4,10 @@
 
 @layer base {
   html {
+    @apply text-black text-opacity-75;
+    @apply dark:text-white dark:text-opacity-75 dark:bg-gray-900;
     font-size: 112.5%;
     line-height: 1.4;
-    color: hsla(0, 0%, 0%, 0.75);
   }
 
   @screen lg {
@@ -16,19 +17,8 @@
     }
   }
 
-  b {
-    @apply text-black;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    html {
-      color: hsla(0, 0%, 100%, 0.75);
-      background-color: hsl(0, 0%, 11%);
-    }
-
-    b {
-      @apply text-white;
-    }
+  b, strong {
+    @apply text-black dark:text-white;
   }
 }
 
@@ -43,11 +33,6 @@
 
   .typography a {
     @apply link;
-  }
-
-  .typography b,
-  .typography strong {
-    @apply text-black dark:text-white;
   }
 
   .typography blockquote {
