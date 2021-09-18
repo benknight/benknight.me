@@ -1,5 +1,5 @@
 declare type TrelloCustomField = {
-  id: string,
+  idCustomField: string,
   value: {
     text: string,
   },
