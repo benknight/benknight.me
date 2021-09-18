@@ -9,14 +9,16 @@ export default function Index() {
     <>
       <Helmet>
         <title>benknight.me</title>
+        <meta name="theme-color" content="#000" />
       </Helmet>
-      <div className="relative w-screen h-screen flex flex-col items-center justify-center sm:font-light text-white antialiased text-opacity-30">
+      <div className="fixed inset-0 flex flex-col items-center justify-center sm:font-light text-white antialiased text-opacity-30">
         <div className="absolute top-0 left-0 w-full h-full">
           <Image
             alt=""
             className="portrait:hidden"
             layout="fill"
             objectFit="cover"
+            quality={100}
             src="/portrait-landscape.jpg"
           />
           <Image
@@ -24,6 +26,8 @@ export default function Index() {
             className="landscape:hidden"
             layout="fill"
             objectFit="cover"
+            quality={100}
+            sizes="100vh"
             src="/portrait-square.jpg"
           />
         </div>
