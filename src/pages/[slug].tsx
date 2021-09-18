@@ -60,6 +60,7 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
           width={1600}
         />
       )} */}
+      <Colophon />
       <div className="py-8 px-3 max-w-xl m-auto typography">
         <h1 className="px-3 mb-0 text-center">{post.title}</h1>
         {post.date && (
@@ -71,7 +72,6 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
         )}
         <div className="mt-8" dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
-      <Colophon />
     </>
   );
 }
