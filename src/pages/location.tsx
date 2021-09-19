@@ -2,6 +2,7 @@ import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { useCallback } from 'react';
+import { Helmet } from 'react-helmet';
 import Colophon from '../components/Colophon';
 
 type Location = {
@@ -79,6 +80,9 @@ export default function Location({
   }, []);
   return (
     <>
+      <Helmet>
+        <title>Location</title>
+      </Helmet>
       {router.query.update && (
         <button className="p-4 w-full bg-green-500" onClick={onUpdateLocation}>
           Update location
