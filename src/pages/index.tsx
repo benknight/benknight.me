@@ -1,9 +1,39 @@
+import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Helmet from 'react-helmet';
 import KnightIcon from '../../public/knight.svg';
 
-export default function Index() {
+type Link = {
+  href: string,
+  text: string,
+};
+
+export async function getStaticProps() {
+  const response = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Links?view=Grid%20view`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      },
+    },
+  );
+  const data = await response.json();
+  const links: Link[] = data.records
+    .map((record: any) => record.fields)
+    .map((fields: any) => ({
+      href: fields.href,
+      text: fields.text,
+    }));
+  return {
+    props: {
+      links,
+    },
+    revalidate: 1,
+  };
+}
+
+export default function Index({ links }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Helmet>
@@ -31,31 +61,13 @@ export default function Index() {
           />
         </div>
         <ul className="relative uppercase text-sm leading-9 tracking-[0.5em] text-center">
-          <li className="my-6">
-            <Link href="/location">
-              <a rel="author">Location</a>
-            </Link>
-          </li>
-          <li className="my-6">
-            <Link href="/posts">
-              <a rel="author">Thoughts</a>
-            </Link>
-          </li>
-          <li className="my-6">
-            <Link href="/photos">
-              <a rel="author">Photos</a>
-            </Link>
-          </li>
-          <li className="my-6">
-            <Link href="/projects">
-              <a rel="author">Projects</a>
-            </Link>
-          </li>
-          <li className="my-6">
-            <a href="/resume" rel="author">
-              Resume
-            </a>
-          </li>
+          {links.map(link => (
+            <li className="my-6">
+              <Link href={link.href}>
+                <a rel="author">{link.text}</a>
+              </Link>
+            </li>
+          ))}
           <li className="mt-12">
             <KnightIcon className="relative left-[-0.25rem] fill-current block w-4 h-4 mx-auto" />
           </li>
