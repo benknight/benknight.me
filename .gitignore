@@ -63,9 +63,5 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-.firebase/*
-firebase-debug.log
-.runtimeconfig.json
-
 # Next
 .next
