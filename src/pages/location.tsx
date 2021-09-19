@@ -1,5 +1,7 @@
 import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
+import { useRouter } from 'next/dist/client/router';
+import { useCallback } from 'react';
 import Colophon from '../components/Colophon';
 
 type Location = {
@@ -11,7 +13,7 @@ type Location = {
   Lng: number,
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview = false }) {
   let offset = '';
   let locations: Location[] = [];
   do {
@@ -30,6 +32,7 @@ export async function getStaticProps() {
   return {
     props: {
       locations,
+      preview,
     },
     revalidate: 1,
   };
@@ -56,8 +59,31 @@ function formatDate(...input: string[]) {
 export default function Location({
   locations,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const router = useRouter();
+  const onUpdateLocation = useCallback(() => {
+    const onSuccess = async (position: GeolocationPosition) => {
+      try {
+        const secret = window.prompt('What’s the secret?');
+        const params = new URLSearchParams({
+          lat: String(position.coords.latitude),
+          lng: String(position.coords.longitude),
+          secret,
+        });
+        await fetch(`/api/update-location?${params.toString()}`);
+      } catch (error) {
+        window.alert('Failed to post location.');
+        console.error(error);
+      }
+    };
+    navigator.geolocation.getCurrentPosition(onSuccess);
+  }, []);
   return (
     <>
+      {router.query.update && (
+        <button className="p-4 w-full bg-green-500" onClick={onUpdateLocation}>
+          Update location
+        </button>
+      )}
       <Colophon />
       <ul id="root" className="px-8 lg:px-16 pb-16 m-auto text-center">
         {locations
