@@ -1,5 +1,4 @@
 import { name } from 'country-emoji';
-import { groupBy, sortBy } from 'lodash';
 import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/dist/client/router';
@@ -89,7 +88,7 @@ export default function Location({
       (a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime(),
     );
     if (router.query.view === 'country') {
-      const groupedByCountry = [];
+      const groupedByCountry: Location[] = [];
       for (let i = 0; i < locations.length; i++) {
         if (locations[i + 1] && locations[i].Emoji === locations[i + 1].Emoji) {
           continue;
