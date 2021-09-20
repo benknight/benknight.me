@@ -5,6 +5,7 @@ import { useRouter } from 'next/dist/client/router';
 import { useCallback, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch } from '@headlessui/react';
+import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import Colophon from '../components/Colophon';
 
 type Location = {
@@ -14,6 +15,7 @@ type Location = {
   'Google Maps Link': string,
   Lat: number,
   Lng: number,
+  'Photo Album Link'?: string,
 };
 
 export async function getStaticProps({ preview = false }) {
@@ -156,6 +158,16 @@ export default function Location({
                 <time dateTime={location.Date}>
                   {formatDate(location.Date, prev && prev.Date)}
                 </time>
+                {location['Photo Album Link'] && (
+                  <>
+                    {' '}
+                    &middot;{' '}
+                    <a href={location['Photo Album Link']} target="_blank">
+                      <PhotoLibraryIcon className="w-4 h-4" />
+                      <span className="sr-only">Photo Album</span>
+                    </a>
+                  </>
+                )}
               </a>
             </li>
           );
