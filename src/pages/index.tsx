@@ -40,7 +40,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
         <title>benknight.me</title>
         <meta name="theme-color" content="#000" />
       </Helmet>
-      <div className="fixed inset-0 flex flex-col items-center justify-center sm:font-light text-white antialiased text-opacity-40">
+      <div className="fixed inset-0 flex flex-col items-center justify-center font-medium landscape:font-light text-white antialiased text-opacity-40">
         <div className="absolute top-0 left-0 w-full h-full">
           <Image
             alt=""
@@ -62,14 +62,18 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
         </div>
         <ul className="relative uppercase text-sm leading-9 tracking-[0.5em] text-center">
           {links.map(link => (
-            <li className="my-6">
+            <li className="mb-3">
               <Link href={link.href}>
-                <a rel="author">{link.text}</a>
+                <a
+                  className="block hover:text-white hover:text-opacity-60 transition-colors duration-500 ease p-2"
+                  rel="author">
+                  {link.text}
+                </a>
               </Link>
             </li>
           ))}
-          <li className="mt-12">
-            <KnightIcon className="relative left-[-0.25rem] fill-current block w-4 h-4 mx-auto" />
+          <li className="mt-8">
+            <KnightIcon className="relative left-[-0.25rem] fill-current block w-4 h-4 mx-auto hover:text-white hover:text-opacity-60 transition-colors duration-500 ease" />
           </li>
         </ul>
       </div>
