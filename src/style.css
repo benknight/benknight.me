@@ -4,8 +4,8 @@
 
 @layer base {
   html {
-    @apply text-black text-opacity-75 font-light;
-    @apply dark:text-white dark:text-opacity-75 dark:bg-gray-900;
+    @apply text-black text-opacity-75;
+    @apply dark:font-light dark:text-white dark:text-opacity-75 dark:bg-gray-900;
     font-size: 112.5%;
     line-height: 1.4;
   }
