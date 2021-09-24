@@ -2,7 +2,9 @@ import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Helmet from 'react-helmet';
-import KnightIcon from '../../public/knight.svg';
+import KnightIcon from '../assets/knight.svg';
+import portraitLandscape from '../assets/portrait-landscape.jpg';
+import portraitSquare from '../assets/portrait-square.jpg';
 
 type Link = {
   href: string,
@@ -48,7 +50,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
             layout="fill"
             objectFit="cover"
             quality={100}
-            src="/portrait-landscape.jpg"
+            src={portraitLandscape}
           />
           <Image
             alt=""
@@ -57,12 +59,12 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
             objectFit="cover"
             quality={100}
             sizes="100vh"
-            src="/portrait-square.jpg"
+            src={portraitSquare}
           />
         </div>
         <ul className="relative uppercase text-sm leading-9 tracking-[0.5em] text-center">
           {links.map(link => (
-            <li className="mb-3">
+            <li className="mb-3" key={link.href}>
               <Link href={link.href}>
                 <a
                   className="block hover:text-white hover:text-opacity-60 transition-colors duration-500 ease p-2"
