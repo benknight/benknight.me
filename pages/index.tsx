@@ -2,9 +2,9 @@ import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Helmet from 'react-helmet';
-import KnightIcon from '../assets/knight.svg';
-import portraitLandscape from '../assets/portrait-landscape.jpg';
-import portraitSquare from '../assets/portrait-square.jpg';
+import KnightIcon from '../public/knight.svg';
+import portraitLandscape from '../public/portrait-landscape.jpg';
+import portraitSquare from '../public/portrait-square.jpg';
 
 type Link = {
   href: string,
@@ -49,6 +49,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
             className="portrait:hidden filter brightness-110"
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
             quality={100}
             src={portraitLandscape}
           />
@@ -57,6 +58,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
             className="landscape:hidden filter brightness-110"
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
             quality={100}
             sizes="100vh"
             src={portraitSquare}
