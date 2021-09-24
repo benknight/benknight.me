@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import avatar from '../../public/portrait-avatar.jpg';
+import avatar from '../assets/portrait-avatar.jpg';
 
 export default function Colophon() {
   return (
