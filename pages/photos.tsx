@@ -1,12 +1,12 @@
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import Colophon from '../components/Colophon';
 
 export default function Photos() {
   return (
     <div className="w-screen h-screen flex flex-col">
-      <Helmet>
+      <Head>
         <title>Photos</title>
-      </Helmet>
+      </Head>
       <Colophon />
       <div className="relative w-full flex-auto text-center p-4">
         Loading albums&hellip;

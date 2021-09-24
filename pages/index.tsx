@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import Helmet from 'react-helmet';
+import Head from 'next/head';
 import KnightIcon from '../public/knight.svg';
 import portraitLandscape from '../public/portrait-landscape.jpg';
 import portraitSquare from '../public/portrait-square.jpg';
@@ -38,10 +38,10 @@ export async function getStaticProps() {
 export default function Index({ links }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <Helmet>
+      <Head>
         <title>benknight.me</title>
         <meta name="theme-color" content="#000" />
-      </Helmet>
+      </Head>
       <div className="fixed inset-0 flex flex-col items-center justify-center font-medium landscape:font-light text-white antialiased text-opacity-40">
         <div className="absolute top-0 left-0 w-full h-full">
           <Image

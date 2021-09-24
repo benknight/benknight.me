@@ -3,7 +3,7 @@ import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { useCallback, useMemo } from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import { Switch } from '@headlessui/react';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import Colophon from '../components/Colophon';
@@ -108,9 +108,9 @@ export default function Location({
 
   return (
     <>
-      <Helmet>
+      <Head>
         <title>Location</title>
-      </Helmet>
+      </Head>
       {router.query.update && (
         <button className="p-4 w-full bg-green-500" onClick={onUpdateLocation}>
           Update location

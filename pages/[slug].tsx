@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
 import { remark } from 'remark';
 import html from 'remark-html';
 import Colophon from '../components/Colophon';
@@ -50,9 +50,9 @@ export async function getStaticPaths() {
 export default function Post({ post }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <Helmet>
+      <Head>
         <title>{post.title}</title>
-      </Helmet>
+      </Head>
       {/* {post.coverImage && (
         <Image
           alt=""
