@@ -7,7 +7,7 @@ export default function Colophon() {
     <div className="w-full h-28 md:h-32 flex items-center justify-center bg-blue-100 dark:bg-black dark:bg-opacity-50 p-4">
       <Link href="/">
         <a
-          className="block flex-shrink-0 relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 ml-3 md:ml-0"
+          className="block shrink-0 relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 ml-3 md:ml-0"
           rel="author">
           <Image
             alt="Portrait of Benjamin Knight"
@@ -18,7 +18,7 @@ export default function Colophon() {
           />
         </a>
       </Link>
-      <p className="max-w-md ml-4 text-xs sm:text-sm md:text-base flex-grow-0">
+      <p className="max-w-md ml-4 text-xs sm:text-sm md:text-base grow-0">
         I’m{' '}
         <Link href="/">
           <a rel="author">

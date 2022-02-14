@@ -1,25 +1,18 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  darkMode: 'media', // or 'media' or 'class'
   important: true,
-  mode: 'jit',
   plugins: [],
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        gray: {
-          ...colors.trueGray,
-        },
+        gray: colors.neutral,
       },
       screens: {
         landscape: { raw: '(orientation: landscape)' },
         portrait: { raw: '(orientation: portrait)' },
       },
     },
-  },
-  variants: {
-    extend: {},
   },
 };
