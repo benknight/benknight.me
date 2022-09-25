@@ -1,24 +1,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import avatar from '../public/portrait-avatar.jpg';
+import avatar from '../public/portrait-alt.jpg';
 
 export default function Colophon() {
   return (
-    <div className="w-full h-28 md:h-32 flex items-center justify-center bg-blue-100 dark:bg-black dark:bg-opacity-50 p-4">
+    <div className="w-full h-28 md:h-32 flex items-center justify-center bg-stone-100 dark:bg-black dark:bg-opacity-50 p-4">
       <Link href="/">
         <a
-          className="block shrink-0 relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 ml-3 md:ml-0"
+          className="block shrink-0 relative w-16 h-16 sm:w-20 sm:h-20 ml-3 md:ml-0"
           rel="author">
           <Image
             alt="Portrait of Benjamin Knight"
-            className="rounded-full filter brightness-150"
-            layout="fill"
+            className="rounded-full object-top"
+            objectFit="cover"
             placeholder="blur"
             src={avatar}
+            width={160}
+            height={160}
           />
         </a>
       </Link>
-      <p className="max-w-md ml-4 text-xs sm:text-sm md:text-base grow-0">
+      <p className="max-w-md ml-6 text-xs sm:text-sm md:text-base grow-0 text-black/60 dark:text-white/60">
         I’m{' '}
         <Link href="/">
           <a rel="author">
