@@ -69,7 +69,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
             <li className="mb-3" key={link.href}>
               <Link href={link.href}>
                 <a
-                  className="block hover:text-white hover:text-opacity-60 transition-colors duration-500 ease p-2"
+                  className="block hover:text-white hover:text-opacity-60 ease p-2"
                   rel="author">
                   {link.text}
                 </a>
