@@ -50,7 +50,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
             layout="fill"
             objectFit="cover"
             placeholder="blur"
-            quality={100}
+            quality={90}
             src={portraitLandscape}
           />
           <Image
@@ -59,7 +59,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
             layout="fill"
             objectFit="cover"
             placeholder="blur"
-            quality={100}
+            quality={90}
             sizes="100vh"
             src={portraitSquare}
           />
