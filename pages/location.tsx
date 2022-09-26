@@ -2,7 +2,7 @@ import { name } from 'country-emoji';
 import moment from 'moment';
 import { InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/dist/client/router';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import Head from 'next/head';
 import { Switch } from '@headlessui/react';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
@@ -70,6 +70,7 @@ export default function Location({
   locations,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
+  const [view, setView] = useState('city');
 
   const onUpdateLocation = useCallback(() => {
     const onSuccess = async (position: GeolocationPosition) => {
@@ -94,7 +95,7 @@ export default function Location({
     locations = locations.sort(
       (a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime(),
     );
-    if (router.query.view === 'country') {
+    if (view === 'country') {
       const groupedByCountry: Location[] = [];
       for (let i = 0; i < locations.length; i++) {
         if (locations[i + 1] && locations[i].Emoji === locations[i + 1].Emoji) {
@@ -109,7 +110,7 @@ export default function Location({
       locations = groupedByCountry;
     }
     return locations;
-  }, [router.query.view]);
+  }, [view]);
 
   return (
     <>
@@ -126,18 +127,14 @@ export default function Location({
         <div className="pt-10 flex justify-center items-center text-sm  font-light">
           <Switch.Label className="cursor-pointer w-20 text-right">cities</Switch.Label>
           <Switch
-            checked={router.query.view === 'country'}
-            onChange={() =>
-              router.replace(
-                `/location?view=${router.query.view === 'country' ? 'city' : 'country'}`,
-              )
-            }
+            checked={view === 'country'}
+            onChange={() => setView(view => (view === 'city' ? 'country' : 'city'))}
             className="bg-stone-300 dark:bg-stone-500 relative inline-flex shrink-0 h-5 w-10 mx-3 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
             <span className="sr-only">Use setting</span>
             <span
               aria-hidden="true"
               className={`${
-                router.query.view === 'country' ? 'translate-x-5' : 'translate-x-0'
+                view === 'country' ? 'translate-x-5' : 'translate-x-0'
               } pointer-events-none inline-block h-5 w-5 rounded-full shadow-lg ring-0 transition ease-in-out duration-200`}
               style={{ backgroundColor: 'ButtonFace' }}
             />
