@@ -34,18 +34,18 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
       <Colophon />
       <div className="py-6 max-w-xl m-auto">
         {posts.map(post => (
-          <div className="py-6">
-            <Link key={post.id} href={`/${post.slug}`}>
-              <a className="block text-center p-4 my-2 typography group hover:bg-black/5 border border-dashed border-transparent hover:border-white/10">
-                <h3 className="m-0 !leading-7 text-xl">{post.title}</h3>
-                <small className="block mt-2 text-center">
-                  {moment(post.date).format('LL')}
-                  <span className="mx-2">&middot;</span>
-                  {post.labels.join(',') || 'Uncategorized'}
-                </small>
-              </a>
-            </Link>
-          </div>
+          <Link href={`/${post.slug}`} key={post.id}>
+            <a className="block p-4 my-2 typography group">
+              <h3 className="m-0 text-xl link underline-offset-3 group-hover:text-blue-400">
+                {post.title}
+              </h3>
+              <small className="block mt-1 text-black">
+                {moment(post.date).format('LL')}
+                <span className="mx-2">&middot;</span>
+                {post.labels.join(',') || 'Uncategorized'}
+              </small>
+            </a>
+          </Link>
         ))}
       </div>
     </>
