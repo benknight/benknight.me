@@ -2,7 +2,7 @@
   "name": "benknight.me",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 4587",
     "build": "next build",
     "start": "next start"
   },
