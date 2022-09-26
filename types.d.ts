@@ -1,7 +1,8 @@
 declare type TrelloCustomField = {
   idCustomField: string,
   value: {
-    text: string,
+    checked?: string,
+    text?: string,
   },
 };
 
@@ -21,6 +22,7 @@ declare type TrelloCard = {
 
 declare type Post = {
   date: string,
+  hideTitle: boolean,
   html?: string,
   id: string,
   labels: string[],

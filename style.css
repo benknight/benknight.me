@@ -39,23 +39,18 @@
     @apply text-sm pl-4 border-l opacity-75;
   }
 
-  .typography h1,
-  .typography h2,
-  .typography h3,
-  .typography h4,
-  .typography h5,
-  .typography h6 {
+  .typography :is(h1, h2, h3, h4, h5, h6) {
     @apply text-black dark:text-white mb-6 leading-tight font-medium;
   }
 
-  .typography h1 { @apply text-3xl; }
-  .typography h2 { @apply text-2xl mt-12; }
+  .typography h1 { @apply text-2xl; }
+  .typography h2 { @apply text-2xl; }
   .typography h3 { @apply text-xl; }
   .typography h4 { @apply text-lg; }
   .typography h5 { @apply text-base; }
 
   @screen sm {
-    .typography h1 { @apply text-4xl; }
+    .typography h1 { @apply text-3xl; }
     .typography h2 { @apply text-3xl; }
     .typography h3 { @apply text-2xl; }
     .typography h4 { @apply text-xl; }
@@ -89,10 +84,10 @@
   }
 
   .typography ol {
-    @apply list-decimal;
+    @apply list-decimal mb-12;
   }
 
   .typography ul {
-    @apply list-disc;
+    @apply list-disc mb-12;
   }
 }
