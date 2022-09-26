@@ -27,22 +27,28 @@ export default function Colophon() {
             <b>Benjamin Knight</b>
           </a>
         </Link>
-        . I’m a coder and designer. I work on some of my own{' '}
+        . I’m an independent{' '}
         <Link href="/projects">
           <a rel="author" className="underline">
-            <b>projects</b>
-          </a>
-        </Link>{' '}
-        and I’m available{' '}
-        <Link href="/resume">
-          <a rel="author" className="underline">
-            <b>for hire</b>
+            <b>coder &amp; designer</b>
           </a>
         </Link>
-        . Sometimes I{' '}
+        . A&nbsp;native Mainer, I am{' '}
         <Link href="/location">
           <a rel="author" className="underline">
-            <b>travel</b>
+            <b>currently</b>
+          </a>
+        </Link>{' '}
+        living in Vietnam. I like to listen to{' '}
+        <Link href="/favorite-albums">
+          <a rel="author" className="underline">
+            <b>music</b>
+          </a>
+        </Link>{' '}
+        and{' '}
+        <Link href="/reading">
+          <a rel="author" className="underline">
+            <b>read</b>
           </a>
         </Link>
         .
