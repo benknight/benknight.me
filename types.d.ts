@@ -22,7 +22,7 @@ declare type TrelloCard = {
 
 declare type Post = {
   date: string,
-  hideTitle: boolean,
+  hideTitle?: boolean,
   html?: string,
   id: string,
   labels: string[],
