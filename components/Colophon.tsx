@@ -11,9 +11,7 @@ export default function Colophon() {
           rel="author">
           <Image
             alt="Portrait of Benjamin Knight"
-            className="rounded-full object-top"
-            objectFit="cover"
-            placeholder="blur"
+            className="rounded-full"
             src={avatar}
             width={160}
             height={160}
