@@ -21,6 +21,7 @@ export async function getStaticProps({ params: { slug } }) {
       id: item.id,
       labels: item.labels.map(label => label.name),
       html: (await remark().use(html, { sanitize: false }).process(item.desc)).toString(),
+      slug: getPostSlug(item),
       title: item.name,
     };
   }
@@ -52,6 +53,7 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
     <>
       <Head>
         <title>{post.title}</title>
+        <link rel="canonical" href={`https://www.benknight.me/${post.slug}`} />
       </Head>
       {/* {post.coverImage && (
         <Image

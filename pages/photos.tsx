@@ -6,6 +6,7 @@ export default function Photos() {
     <div className="w-screen h-screen flex flex-col">
       <Head>
         <title>Photos</title>
+        <link rel="canonical" href="https://www.benknight.me/photos" />
       </Head>
       <Colophon />
       <div className="relative w-full flex-auto p-4 flex items-center justify-center">

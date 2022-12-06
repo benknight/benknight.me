@@ -30,6 +30,7 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
     <>
       <Head>
         <title>Thoughts</title>
+        <link rel="canonical" href="https://www.benknight.me/posts" />
       </Head>
       <Colophon />
       <div className="py-6 max-w-xl m-auto">

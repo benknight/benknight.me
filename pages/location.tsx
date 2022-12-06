@@ -116,6 +116,7 @@ export default function Location({
     <>
       <Head>
         <title>Location</title>
+        <link rel="canonical" href="https://www.benknight.me/location" />
       </Head>
       {router.query.update && (
         <button className="p-4 w-full bg-green-500" onClick={onUpdateLocation}>

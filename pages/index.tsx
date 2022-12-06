@@ -41,6 +41,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
       <Head>
         <title>benknight.me</title>
         <meta name="theme-color" content="#000" />
+        <link rel="canonical" href="https://www.benknight.me/" />
       </Head>
       <div className="fixed inset-0 flex flex-col items-center justify-center font-medium landscape:font-light text-white antialiased text-opacity-40">
         <div className="absolute top-0 left-0 w-full h-full">
