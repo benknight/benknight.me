@@ -42,11 +42,17 @@ export default function Colophon() {
           <a rel="author" className="underline">
             <b>music</b>
           </a>
-        </Link>{' '}
-        and{' '}
+        </Link>
+        ,{' '}
         <Link href="/reading">
           <a rel="author" className="underline">
             <b>read</b>
+          </a>
+        </Link>
+        , and get some{' '}
+        <Link href="https://www.strava.com/athletes/benknight">
+          <a rel="author" className="underline">
+            <b>exercise</b>
           </a>
         </Link>
         .
