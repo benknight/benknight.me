@@ -77,7 +77,7 @@ export default function Index({ links }: InferGetStaticPropsType<typeof getStati
               </Link>
             </li>
           ))}
-          <li className="mt-8">
+          <li className="mt-8" title="It’s a knight, get it?">
             <KnightIcon className="relative left-[-0.25rem] fill-current block w-4 h-4 mx-auto hover:text-white hover:text-opacity-60 transition-colors duration-500 ease" />
           </li>
         </ul>
