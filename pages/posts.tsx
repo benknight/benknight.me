@@ -44,7 +44,7 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
                 <small className="block mt-1">
                   {moment(post.date).format('LL')}
                   <span className="mx-2">&middot;</span>
-                  {post.labels.join(',') || 'Uncategorized'}
+                  {post.labels.join(', ') || 'Uncategorized'}
                 </small>
               </a>
             </Link>
