@@ -13,6 +13,14 @@ export async function getStaticProps() {
     props: {
       posts: cards
         .filter(item => isPostPublic(item))
+        .sort((a, b) => {
+          const aDate = new Date(getPostDate(a));
+          const bDate = new Date(getPostDate(b));
+          if (aDate && bDate) {
+            return bDate.getTime() - aDate.getTime();
+          }
+          return 0;
+        })
         .map((item): Post => ({
           date: getPostDate(item) ?? null,
           id: item.id,
