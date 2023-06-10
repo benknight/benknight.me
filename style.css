@@ -91,3 +91,7 @@
     @apply list-disc mb-12;
   }
 }
+
+#post-saigon-roads img {
+  @apply invert brightness-150 dark:invert-0 dark:brightness-100;
+}

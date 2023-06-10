@@ -1,7 +1,9 @@
 declare type TrelloCustomField = {
   idCustomField: string,
+  idValue: string,
   value: {
     checked?: string,
+    date?: string,
     text?: string,
   },
 };
@@ -22,10 +24,10 @@ declare type TrelloCard = {
 
 declare type Post = {
   date: string,
-  hideTitle?: boolean,
   html?: string,
   id: string,
-  labels: string[],
   slug?: string,
   title: string,
 };
+
+declare type PostVisibility = 'public' | 'private' | 'unlisted';

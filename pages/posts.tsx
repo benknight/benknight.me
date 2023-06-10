@@ -4,21 +4,20 @@ import Link from 'next/link';
 import React from 'react';
 import Head from 'next/head';
 import Colophon from '../components/Colophon';
-import { getPostSlug } from '../lib/utils';
-import { fetchPosts } from '../lib/TrelloClient';
+import { getPostDate, getPostSlug, getPostTitle, isPostPublic } from '../lib/utils';
+import { fetchCards } from '../lib/TrelloClient';
 
 export async function getStaticProps() {
-  const posts = await fetchPosts();
+  const cards = await fetchCards();
   return {
     props: {
-      posts: posts
-        .filter(item => item.dueComplete && Boolean(getPostSlug(item)))
+      posts: cards
+        .filter(item => isPostPublic(item))
         .map((item): Post => ({
-          date: item.due || '',
+          date: getPostDate(item) ?? null,
           id: item.id,
-          labels: item.labels.map(label => label.name),
           slug: getPostSlug(item),
-          title: item.name,
+          title: getPostTitle(item) ?? item.name,
         })),
     },
     revalidate: 1,
@@ -42,9 +41,7 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
                   {post.title}
                 </h3>
                 <small className="block mt-1">
-                  {moment(post.date).format('LL')}
-                  <span className="mx-2">&middot;</span>
-                  {post.labels.join(', ') || 'Uncategorized'}
+                  {post.date && moment(post.date).format('LL')}
                 </small>
               </a>
             </Link>
