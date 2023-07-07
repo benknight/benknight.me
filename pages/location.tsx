@@ -43,25 +43,24 @@ export async function getStaticProps({ preview = false }) {
   };
 }
 
-function formatDate(...input: string[]) {
-  const calendar = moment(input[0]).calendar(null, {
-    // lastDay: '[Yesterday]',
-    // lastWeek: '[Last] dddd',
-    // sameDay: '[Today]',
-    sameElse: function (now) {
-      if (this.year() === moment(now).year()) {
-        return 'MMMM D';
-      }
-      return 'LL';
-    },
-  });
-  const days = Math.round(
-    Math.max(1, moment(input[1]).diff(moment(input[0]), 'days', true)),
+function formatDate(current: string, prev?: string) {
+  const startDate = moment(current);
+  const endDate = moment(prev);
+  const isThisYear = endDate.year() === moment().year();
+  const isThisMonth = startDate.month() === endDate.month();
+  const formattedStartDate = startDate.format('MMM D');
+  const formattedEndDate = prev
+    ? endDate.format((isThisMonth ? '' : 'MMM ') + (isThisYear ? 'D' : 'D, YYYY'))
+    : '';
+  const dayCount = Math.round(
+    Math.max(1, moment(prev).diff(moment(current), 'days', true)),
   );
   return (
     <>
-      {days} {days > 1 ? 'days' : 'day'} <span className="opacity-50 mx-px">·</span>{' '}
-      {calendar}
+      {dayCount} {dayCount > 1 ? 'days' : 'day'}{' '}
+      <span className="opacity-50 mx-px">·</span> {formattedStartDate}
+      {isThisMonth ? '–' : ' to '}
+      {formattedEndDate}
     </>
   );
 }
@@ -174,7 +173,7 @@ export default function Location({
                 </a>
                 <br />
                 <time dateTime={location.Date}>
-                  {formatDate(location.Date, prev && prev.Date)}
+                  {formatDate(location.Date, prev?.Date)}
                 </time>
                 {location['Photo Album Link'] && (
                   <>
