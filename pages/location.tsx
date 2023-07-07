@@ -147,30 +147,24 @@ export default function Location({
           const prev = locations[index - 1];
           return (
             <li className="mt-16" key={location.Date}>
-              <div className="inline-block">
-                <a
-                  className={`mb-4 text-3xl leading-[4.1rem] text-center inline-flex`}
-                  href={location['Google Maps Link']}
-                  target="_blank"
-                  rel="noreferrer">
+              <a
+                className="inline-block group"
+                href={location['Google Maps Link']}
+                target="_blank"
+                rel="noreferrer">
+                <span className="mb-4 text-3xl leading-[4.1rem] text-center inline-flex">
                   {index === 0 && (
                     <>
                       <div className="absolute w-16 h-16 bg-blue-500 ring ring-blue-500 rounded-full" />
                       <div className="absolute w-16 h-16 animate-ping bg-blue-500/50 rounded-full" />
                     </>
                   )}
-                  <div className="relative bg-stone-100/90 dark:bg-black/80 inline-block w-16 h-16 rounded-full">
+                  <div className="relative bg-stone-100/90 group-hover:bg-stone-200/90 transition-colors duration-100 ease dark:bg-black/80 inline-block w-16 h-16 rounded-full">
                     {location.Emoji}
                   </div>
-                </a>
+                </span>
                 <br />
-                <a
-                  className="font-bold"
-                  href={location['Google Maps Link']}
-                  target="_blank"
-                  rel="noreferrer">
-                  {location.Address}
-                </a>
+                <span className="font-bold">{location.Address}</span>
                 <br />
                 <time dateTime={location.Date}>
                   {formatDate(location.Date, prev?.Date)}
@@ -185,7 +179,7 @@ export default function Location({
                     </a>
                   </>
                 )}
-              </div>
+              </a>
             </li>
           );
         })}
