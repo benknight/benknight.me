@@ -48,9 +48,9 @@ function formatDate(current: string, prev?: string) {
   const endDate = moment(prev);
   const isThisYear = endDate.year() === moment().year();
   const isThisMonth = startDate.month() === endDate.month();
-  const formattedStartDate = startDate.format('MMM D');
+  const formattedStartDate = startDate.format('MMMM D');
   const formattedEndDate = prev
-    ? endDate.format((isThisMonth ? '' : 'MMM ') + (isThisYear ? 'D' : 'D, YYYY'))
+    ? endDate.format((isThisMonth ? '' : 'MMMM ') + (isThisYear ? 'D' : 'D, YYYY'))
     : '';
   const dayCount = Math.round(
     Math.max(1, moment(prev).diff(moment(current), 'days', true)),
@@ -59,7 +59,7 @@ function formatDate(current: string, prev?: string) {
     <>
       {dayCount} {dayCount > 1 ? 'days' : 'day'}{' '}
       <span className="opacity-50 mx-px">·</span> {formattedStartDate}
-      {isThisMonth ? '–' : ' to '}
+      {prev ? '–' : ''}
       {formattedEndDate}
     </>
   );
@@ -69,7 +69,7 @@ export default function Location({
   locations,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
-  const [view, setView] = useState('city');
+  const [view, setView] = useState('country');
 
   const onUpdateLocation = useCallback(() => {
     const onSuccess = async (position: GeolocationPosition) => {
@@ -125,21 +125,23 @@ export default function Location({
       <Colophon />
       <Switch.Group>
         <div className="pt-10 flex justify-center items-center text-sm  font-light">
-          <Switch.Label className="cursor-pointer w-20 text-right">cities</Switch.Label>
+          <Switch.Label className="cursor-pointer w-20 text-right">
+            countries
+          </Switch.Label>
           <Switch
-            checked={view === 'country'}
+            checked={view === 'city'}
             onChange={() => setView(view => (view === 'city' ? 'country' : 'city'))}
             className="bg-stone-300 dark:bg-stone-500 relative inline-flex shrink-0 h-5 w-10 mx-3 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
             <span className="sr-only">Use setting</span>
             <span
               aria-hidden="true"
               className={`${
-                view === 'country' ? 'translate-x-5' : 'translate-x-0'
+                view === 'city' ? 'translate-x-5' : 'translate-x-0'
               } pointer-events-none inline-block h-5 w-5 rounded-full shadow-lg ring-0 transition ease-in-out duration-200`}
               style={{ backgroundColor: 'ButtonFace' }}
             />
           </Switch>
-          <Switch.Label className="cursor-pointer w-20">countries</Switch.Label>
+          <Switch.Label className="cursor-pointer w-20">cities</Switch.Label>
         </div>
       </Switch.Group>
       <ul id="root" className="px-8 lg:px-16 pb-16 m-auto text-center">
@@ -159,14 +161,14 @@ export default function Location({
                       <div className="absolute w-16 h-16 animate-ping bg-blue-500/50 rounded-full" />
                     </>
                   )}
-                  <div className="relative bg-stone-100/90 group-hover:bg-stone-200/90 transition-colors duration-100 ease dark:bg-black/80 inline-block w-16 h-16 rounded-full">
+                  <div className="relative bg-stone-100/90 group-hover:bg-stone-200/90 transition-colors duration-100 ease dark:bg-black/80 group-hover:dark:bg-black inline-block w-16 h-16 rounded-full">
                     {location.Emoji}
                   </div>
                 </span>
                 <br />
                 <span className="font-bold">{location.Address}</span>
                 <br />
-                <time dateTime={location.Date}>
+                <time className="opacity-70" dateTime={location.Date}>
                   {formatDate(location.Date, prev?.Date)}
                 </time>
                 {location['Photo Album Link'] && (
