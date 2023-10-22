@@ -1,0 +1,34 @@
+import Layout from '../components/Layout';
+
+export const meta = {
+  title: 'My favorite albums',
+  lastUpdated: 'August 25, 2023',
+};
+
+I love music. It colors in the outlines that certain phases of my life create, and it defines my overall day-to-day mood and attitude.
+
+Thrash metal and prog rock fueled my energetic and hyper-social high school and college years. Later, hip hop and jazz chilled me out and gave me a beat to work to when I started sipping lattes while working and living independently. Then psychedelic rock and downtempo electronic defined the foggy chilly days of my mostly lonely Bay Area urban lifestyle for about 5 years.
+
+Today, I still consume music primarily in album format. I'm more likely to listen through an entire album from start to finish than shuffle through a playlist. I love the dynamic shifts from track to track under the umbrella of an artists’ sound and texture.
+
+So this got me thinking, if I were to pick the most influential albums in my life, how would I do it, and what would they be?
+
+At first I set about designing a sorting algorithm in order to rank them from #1 to #50. Then later I realized not only would that be time consuming (it would take 1,225 individual comparisons to rank 50 albums) but it was as pointless as comparing apples and oranges anyway.
+
+Now I think it's enough to just choose whichever ones come to mind, but it still wasn't easy. I like to think if I ever had a large vinyl collection, these are the albums that would be in it.
+
+Some notes included when expanding cards.
+
+export default ({ children }) => (
+  <>
+    <Layout meta={meta}>{children}</Layout>
+    <iframe
+      className="airtable-embed"
+      src="https://airtable.com/embed/shrBVC7IRzN8Pe0mJ?backgroundColor=purple&viewControls=on"
+      frameborder="0"
+      onmousewheel=""
+      width="100%"
+      height="600"
+      style={{ background: 'transparent', border: '1px solid #ccc;' }}></iframe>
+  </>
+);

@@ -6,6 +6,7 @@ import html from 'remark-html';
 import Colophon from '../components/Colophon';
 import { getPostDate, getPostSlug, getPostTitle, isPostPrivate } from '../lib/utils';
 import { fetchCards } from '../lib/TrelloClient';
+import Layout from '../components/Layout';
 
 export async function getStaticProps({ params: { slug } }) {
   let post: Post;
@@ -16,6 +17,7 @@ export async function getStaticProps({ params: { slug } }) {
       date: getPostDate(item) ?? null,
       id: item.id,
       html: (await remark().use(html, { sanitize: false }).process(item.desc)).toString(),
+      name: item.name,
       slug: getPostSlug(item),
       title: getPostTitle(item) ?? null,
     };
@@ -50,21 +52,9 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
   return (
     <>
       <Head>
-        <title>{post.title}</title>
-        <link rel="canonical" href={`https://www.benknight.me/${post.slug}`} />
+        <link rel="canonical" href={`https://benknight.me/${post.slug}`} />
       </Head>
-      {/* {post.coverImage && (
-        <Image
-          alt=""
-          className="block cover"
-          height={800}
-          objectFit="cover"
-          src={post.coverImage}
-          width={1600}
-        />
-      )} */}
-      <Colophon />
-      <div className="py-12 px-3 max-w-xl m-auto typography" id={`post-${post.slug}`}>
+      <Layout title={post.title || post.name}>
         {post.title && (
           <div className="mb-8">
             <h1 className="mb-0">{post.title}</h1>
@@ -74,7 +64,7 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
           </div>
         )}
         <div className="break-words" dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      </Layout>
     </>
   );
 }

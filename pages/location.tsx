@@ -9,13 +9,13 @@ import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import Colophon from '../components/Colophon';
 
 type Location = {
-  Address: string,
-  Date: string,
-  Emoji: string,
-  'Google Maps Link': string,
-  Lat: number,
-  Lng: number,
-  'Photo Album Link'?: string,
+  Address: string;
+  Date: string;
+  Emoji: string;
+  'Google Maps Link': string;
+  Lat: number;
+  Lng: number;
+  'Photo Album Link'?: string;
 };
 
 export async function getStaticProps({ preview = false }) {
@@ -115,7 +115,7 @@ export default function Location({
     <>
       <Head>
         <title>Location</title>
-        <link rel="canonical" href="https://www.benknight.me/location" />
+        <link rel="canonical" href="https://benknight.me/location" />
       </Head>
       {router.query.update && (
         <button className="p-4 w-full bg-green-500" onClick={onUpdateLocation}>

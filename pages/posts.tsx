@@ -8,25 +8,41 @@ import { getPostDate, getPostSlug, getPostTitle, isPostPublic } from '../lib/uti
 import { fetchCards } from '../lib/TrelloClient';
 
 export async function getStaticProps() {
-  const cards = await fetchCards();
+  const postsFromTrello = (await fetchCards())
+    .filter(item => isPostPublic(item))
+    .map(
+      (item): Post => ({
+        date: getPostDate(item) ?? null,
+        id: item.id,
+        slug: getPostSlug(item),
+        title: getPostTitle(item) ?? item.name,
+      }),
+    );
+  const staticPosts: Post[] = [
+    'airbnb-tips',
+    'maine',
+    'saigon-roads',
+    'sapiens',
+    'timeline',
+  ].map(slug => {
+    const meta: Record<string, string> = require(`./${slug}.mdx`).meta;
+    return {
+      id: slug,
+      slug,
+      date: meta.updatedDate || meta.postDate || null,
+      title: meta.title,
+    };
+  });
   return {
     props: {
-      posts: cards
-        .filter(item => isPostPublic(item))
-        .sort((a, b) => {
-          const aDate = new Date(getPostDate(a));
-          const bDate = new Date(getPostDate(b));
-          if (aDate && bDate) {
-            return bDate.getTime() - aDate.getTime();
-          }
-          return 0;
-        })
-        .map((item): Post => ({
-          date: getPostDate(item) ?? null,
-          id: item.id,
-          slug: getPostSlug(item),
-          title: getPostTitle(item) ?? item.name,
-        })),
+      posts: [...postsFromTrello, ...staticPosts].sort((a, b) => {
+        const aDate = new Date(a.date);
+        const bDate = new Date(b.date);
+        if (aDate && bDate) {
+          return bDate.getTime() - aDate.getTime();
+        }
+        return 0;
+      }),
     },
     revalidate: 1,
   };

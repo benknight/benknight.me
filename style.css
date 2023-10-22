@@ -12,12 +12,13 @@
 
   @screen lg {
     html {
-      font-size: 150%;
+      /* font-size: 150%; */
       line-height: 1.5;
     }
   }
 
-  b, strong {
+  b,
+  strong {
     @apply text-black dark:text-white font-bold;
   }
 }
@@ -30,68 +31,8 @@
   .link:visited {
     @apply text-purple-600 dark:text-purple-500;
   }
-
-  .typography a {
-    @apply link;
-  }
-
-  .typography blockquote {
-    @apply text-sm pl-4 border-l opacity-75;
-  }
-
-  .typography :is(h1, h2, h3, h4, h5, h6) {
-    @apply text-black dark:text-white mb-6 leading-tight font-medium;
-  }
-
-  .typography h1 { @apply text-2xl; }
-  .typography h2 { @apply text-2xl; }
-  .typography h3 { @apply text-xl; }
-  .typography h4 { @apply text-lg; }
-  .typography h5 { @apply text-base; }
-
-  @screen sm {
-    .typography h1 { @apply text-3xl; }
-    .typography h2 { @apply text-3xl; }
-    .typography h3 { @apply text-2xl; }
-    .typography h4 { @apply text-xl; }
-    .typography h5 { @apply text-lg; }
-  }
-
-  .typography hr {
-    @apply mb-6 bg-stone-400 dark:bg-stone-700 h-px border-none;
-  }
-
-  .typography p {
-    @apply mb-6;
-  }
-
-  .typography li {
-    @apply mb-3;
-  }
-
-  .typography li > ol,
-  .typography li > ul {
-    @apply ml-6 my-3 mr-0;
-  }
-
-  .typography li > p {
-    @apply mb-3;
-  }
-
-  .typography ol,
-  .typography ul {
-    @apply pl-4 mr-6 mb-6;
-  }
-
-  .typography ol {
-    @apply list-decimal mb-12;
-  }
-
-  .typography ul {
-    @apply list-disc mb-12;
-  }
 }
 
-#post-saigon-roads img {
+#saigon-roads img {
   @apply invert brightness-150 dark:invert-0 dark:brightness-100;
 }

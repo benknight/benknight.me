@@ -1,0 +1,21 @@
+import Layout from '../components/Layout';
+
+export const meta = { title: 'Stuff' };
+
+Out of boredom I decided to create a list of stuff that I use. Obviously I use a lot more stuff than this, but these are things that I'm particularly brand-loyal to or just generally a big fan of.
+
+export default ({ children }) => (
+  <>
+    <Layout proseClassName="prose lg:prose-xl" meta={meta}>
+      {children}
+    </Layout>
+    <iframe
+      class="airtable-embed"
+      src="https://airtable.com/embed/shrC1LEK93T84gRUd?backgroundColor=yellow"
+      frameborder="0"
+      onmousewheel=""
+      width="100%"
+      height="533"
+      style={{ background: 'transparent', border: '1px solid #ccc;' }}></iframe>
+  </>
+);
