@@ -54,7 +54,7 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
       <Head>
         <link rel="canonical" href={`https://benknight.me/${post.slug}`} />
       </Head>
-      <Layout title={post.title || post.name}>
+      <Layout meta={{ title: post.title || post.name, postDate: post.date }}>
         {post.title && (
           <div className="mb-8">
             <h1 className="mb-0">{post.title}</h1>
