@@ -4,7 +4,7 @@ import avatar from '../public/portrait-alt.jpg';
 
 export default function Colophon() {
   return (
-    <div className="max-w-2xl h-28 md:h-32 flex items-center justify-center bg-stone-100 dark:bg-black dark:bg-opacity-50 p-4 mx-auto lg:mt-4 lg:rounded-xl">
+    <div className="lg:max-w-2xl flex items-center justify-center bg-stone-100 dark:bg-black dark:bg-opacity-50 p-4 mx-auto lg:mt-4 lg:rounded-xl">
       <Link href="/">
         <a className="block shrink-0 relative w-16 h-16 sm:w-20 sm:h-20" rel="author">
           <Image
@@ -16,7 +16,7 @@ export default function Colophon() {
           />
         </a>
       </Link>
-      <p className="max-w-lg ml-6 text-xs sm:text-sm md:text-lg grow-0 text-black/60 dark:text-white/60">
+      <p className="max-w-lg ml-6 text-xs sm:text-base md:text-lg grow-0 text-black/60 dark:text-white/60">
         I’m{' '}
         <Link href="/">
           <a rel="author" className="underline">

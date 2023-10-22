@@ -20,7 +20,7 @@ export default function Layout({
       </Head>
       <Colophon />
       <article
-        className={`${proseClassName} prose-stone prose-h1:mb-0 prose-hr:my-8 dark:prose-invert py-12 mx-auto max-w-2xl`}>
+        className={`${proseClassName} prose-stone prose-h1:mb-0 prose-hr:my-8 dark:prose-invert py-12 px-3 lg:px-0 mx-auto max-w-2xl`}>
         <div className="text-center">
           <h1>{meta.title}</h1>
           {meta.lastUpdated ? (
