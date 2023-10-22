@@ -54,15 +54,9 @@ export default function Post({ post }: InferGetStaticPropsType<typeof getStaticP
       <Head>
         <link rel="canonical" href={`https://benknight.me/${post.slug}`} />
       </Head>
-      <Layout meta={{ title: post.title || post.name, postDate: post.date }}>
-        {post.title && (
-          <div className="mb-8">
-            <h1 className="mb-0">{post.title}</h1>
-            {post.date && (
-              <small className="block mt-2">{moment(post.date).format('LL')}</small>
-            )}
-          </div>
-        )}
+      <Layout
+        meta={{ title: post.title || post.name, postDate: post.date }}
+        showTitle={false}>
         <div className="break-words" dangerouslySetInnerHTML={{ __html: post.html }} />
       </Layout>
     </>
