@@ -56,15 +56,15 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
         <link rel="canonical" href="https://www.benknight.me/posts" />
       </Head>
       <Colophon />
-      <div className="py-6 max-w-xl m-auto">
+      <div className="px-3 py-6 max-w-xl m-auto prose dark:prose-invert">
         {posts.map(post => (
-          <div key={post.id}>
+          <div className="mb-4" key={post.id}>
             <Link href={`/${post.slug}`}>
-              <a className="inline-block p-4 typography group">
-                <h3 className="m-0 text-xl link underline-offset-3 group-hover:text-blue-400">
-                  {post.title}
+              <a className="block p-4 group no-underline text-center text-black/60 dark:text-white/60">
+                <h3 className="inline m-0 underline underline-offset-2 text-xl text-inherit">
+                  <b>{post.title}</b>
                 </h3>
-                <small className="block mt-1">
+                <small className="block font-light no-underline">
                   {post.date && moment(post.date).format('LL')}
                 </small>
               </a>
