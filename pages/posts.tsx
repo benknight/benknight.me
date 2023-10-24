@@ -53,7 +53,7 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
     <>
       <Head>
         <title>Thoughts</title>
-        <link rel="canonical" href="https://www.benknight.me/posts" />
+        <link rel="canonical" href="https://benknight.me/posts" />
       </Head>
       <Colophon />
       <div className="px-3 py-6 max-w-xl m-auto prose dark:prose-invert">
