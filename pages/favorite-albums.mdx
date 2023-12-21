@@ -23,12 +23,14 @@ export default ({ children }) => (
   <>
     <Layout meta={meta}>{children}</Layout>
     <iframe
-      className="airtable-embed"
-      src="https://airtable.com/embed/shrBVC7IRzN8Pe0mJ?backgroundColor=purple&viewControls=on"
+      class="airtable-embed"
+      src="https://airtable.com/embed/app3AJlNWIblRpKAa/shrBVC7IRzN8Pe0mJ?backgroundColor=purple&viewControls=on"
       frameborder="0"
       onmousewheel=""
       width="100%"
       height="600"
-      style={{ background: 'transparent', border: '1px solid #ccc;' }}></iframe>
+      style={{ background: 'transparent', border: '1px solid #ccc;' }}
+      title="Favorite albums"></iframe>
   </>
 );
+

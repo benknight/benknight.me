@@ -31,7 +31,7 @@ export default function Photos() {
         <iframe
           className="absolute top-0 left-0 w-full h-full"
           height="100%"
-          src="https://airtable.com/embed/shrDFa0a0ErGTsqAr?backgroundColor=gray"
+          src="https://airtable.com/embed/app42Tz6LNdfUEXBP/shrDFa0a0ErGTsqAr?backgroundColor=teal&viewControls=on"
           title="Photo albums"
           width="100%"></iframe>
       </div>
