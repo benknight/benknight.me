@@ -4,6 +4,10 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   webpack(config) {
     config.module.rules.push({
