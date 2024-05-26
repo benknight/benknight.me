@@ -12,20 +12,24 @@ export async function getStaticProps({ params: { slug } }) {
   let post: Post;
   const cards = await fetchCards();
   const item = cards.find(item => slug === getPostSlug(item));
-  if (item) {
-    post = {
-      date: getPostDate(item) ?? null,
-      id: item.id,
-      html: (await remark().use(html, { sanitize: false }).process(item.desc)).toString(),
-      name: item.name,
-      slug: getPostSlug(item),
-      title: getPostTitle(item) ?? null,
+
+  if (!item || isPostPrivate(item)) {
+    return {
+      notFound: true,
+      revalidate: 1,
     };
   }
+
   return {
-    notFound: !post || isPostPrivate(item),
     props: {
-      post,
+      post: {
+        date: getPostDate(item) ?? null,
+        id: item.id,
+        html: (await remark().use(html, { sanitize: false }).process(item.desc)).toString(),
+        name: item.name,
+        slug: getPostSlug(item),
+        title: getPostTitle(item) ?? null,
+      },
     },
     revalidate: 1,
   };
