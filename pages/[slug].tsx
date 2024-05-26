@@ -16,6 +16,9 @@ export async function getStaticProps({ params: { slug } }) {
   if (!item || isPostPrivate(item)) {
     return {
       notFound: true,
+      props: {
+        post: null,
+      },
       revalidate: 1,
     };
   }
