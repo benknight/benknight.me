@@ -35,13 +35,7 @@ export default function Colophon() {
             <b>Mainer</b>
           </a>
         </Link>
-        , I am{' '}
-        <Link href="/location">
-          <a rel="author" className="underline">
-            <b>currently</b>
-          </a>
-        </Link>{' '}
-        living in Vietnam. I like to listen to{' '}
+        , I am currently living in Vietnam. I like to listen to{' '}
         <Link href="/favorite-albums">
           <a rel="author" className="underline">
             <b>music</b>

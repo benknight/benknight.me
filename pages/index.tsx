@@ -11,7 +11,6 @@ type Link = {
 };
 
 const links: Link[] = [
-  // { text: 'Location', href: '/location' },
   { text: 'Thoughts', href: '/posts' },
   { text: 'Photos', href: '/photos' },
   { text: 'Projects', href: '/projects' },
