@@ -1,0 +1,3 @@
+# Allow all crawling except the location page
+User-agent: *
+Disallow: /location

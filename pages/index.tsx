@@ -1,4 +1,3 @@
-import { InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -11,31 +10,15 @@ type Link = {
   text: string;
 };
 
-export async function getStaticProps() {
-  const response = await fetch(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Links?view=Grid%20view`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-      },
-    },
-  );
-  const data = await response.json();
-  const links: Link[] = data.records
-    .map((record: any) => record.fields)
-    .map((fields: any) => ({
-      href: fields.href,
-      text: fields.text,
-    }));
-  return {
-    props: {
-      links,
-    },
-    revalidate: 1,
-  };
-}
+const links: Link[] = [
+  // { text: 'Location', href: '/location' },
+  { text: 'Thoughts', href: '/posts' },
+  { text: 'Photos', href: '/photos' },
+  { text: 'Projects', href: '/projects' },
+  { text: 'Activity', href: 'https://www.strava.com/athletes/benknight' },
+];
 
-export default function Index({ links }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function IndexPage() {
   return (
     <>
       <Head>
