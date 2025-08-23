@@ -3,7 +3,6 @@ import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import { remark } from 'remark';
 import html from 'remark-html';
-import Colophon from '../components/Colophon';
 import { getPostDate, getPostSlug, getPostTitle, isPostPrivate } from '../lib/utils';
 import { fetchCards } from '../lib/TrelloClient';
 import Layout from '../components/Layout';
