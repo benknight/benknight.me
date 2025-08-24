@@ -11,7 +11,7 @@ type Link = {
 };
 
 const links: Link[] = [
-  { text: 'Thoughts', href: '/posts' },
+  { text: 'Posts', href: '/posts' },
   { text: 'Photos', href: '/photos' },
   { text: 'Projects', href: '/projects' },
   { text: 'Activity', href: 'https://www.strava.com/athletes/benknight' },

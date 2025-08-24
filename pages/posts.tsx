@@ -52,7 +52,7 @@ export default function Posts({ posts }: InferGetStaticPropsType<typeof getStati
   return (
     <>
       <Head>
-        <title>Thoughts</title>
+        <title>Posts</title>
         <link rel="canonical" href="https://benknight.me/posts" />
       </Head>
       <Colophon />
