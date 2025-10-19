@@ -25,7 +25,7 @@ export async function getStaticProps() {
     'saigon-roads',
     'sapiens',
     'timeline',
-    'favorte-albums',
+    'favorite-albums',
   ].map(slug => {
     const meta: Record<string, string> = require(`./${slug}.mdx`).meta;
     return {
