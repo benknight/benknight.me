@@ -19,17 +19,19 @@ export async function getStaticProps() {
       }),
     );
   const staticPosts: Post[] = [
+    'reading',
     'airbnb-tips',
     'maine',
     'saigon-roads',
     'sapiens',
     'timeline',
+    'favorte-albums',
   ].map(slug => {
     const meta: Record<string, string> = require(`./${slug}.mdx`).meta;
     return {
       id: slug,
       slug,
-      date: meta.updatedDate || meta.postDate || null,
+      date: meta.lastUpdated || meta.postDate || null,
       title: meta.title,
     };
   });
