@@ -14,7 +14,6 @@ const links: Link[] = [
   { text: 'Posts', href: '/posts' },
   { text: 'Photos', href: '/photos' },
   { text: 'Projects', href: '/projects' },
-  { text: 'Activity', href: 'https://www.strava.com/athletes/benknight' },
 ];
 
 export default function IndexPage() {
