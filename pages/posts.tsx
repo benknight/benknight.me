@@ -22,6 +22,7 @@ export async function getStaticProps() {
     'reading',
     'airbnb-tips',
     'maine',
+    'now',
     'saigon-roads',
     'sapiens',
     'timeline',
