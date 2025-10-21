@@ -2,13 +2,19 @@ import Layout from '../components/Layout';
 
 export const meta = {
   title: 'Reading List',
-  lastUpdated: 'October 1, 2025',
+  lastUpdated: 'October 21, 2025',
 };
+
+export default ({ children }) => (
+  <>
+    <Layout meta={meta}>{children}</Layout>
+  </>
+);
 
 ### What I’m reading now
 
 - _**Snow Crash**_ by Neal Stephenson
-- _**Four Thousdand Weeks**_ by Oliver Burkeman
+- _**Four Thousand Weeks**_ by Oliver Burkeman
 
 ---
 
@@ -123,9 +129,3 @@ export const meta = {
 - _**The Stupidest Angel**_ by Christopher Moore
 - _**Fluke**_ by Christopher Moore
 - _**A Dirty Job**_ by Christopher Moore
-
-export default ({ children }) => (
-  <>
-    <Layout meta={meta}>{children}</Layout>
-  </>
-);
