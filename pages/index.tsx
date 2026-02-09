@@ -12,7 +12,6 @@ type Link = {
 
 const links: Link[] = [
   { text: 'Posts', href: '/posts' },
-  { text: 'Projects', href: '/projects' },
 ];
 
 export default function IndexPage() {

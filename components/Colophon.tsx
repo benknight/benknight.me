@@ -23,12 +23,8 @@ export default function Colophon() {
             <b>Ben Knight</b>
           </a>
         </Link>
-        . I’m an independent{' '}
-        <Link href="/projects">
-          <a rel="author" className="underline">
-            <b>coder &amp; designer</b>
-          </a>
-        </Link>
+        . I'm an independent{' '}
+        <b>coder &amp; designer</b>
         . A&nbsp;native{' '}
         <Link href="/maine">
           <a ref="author" className="underline">

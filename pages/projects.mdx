@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Layout from '../components/Layout';
 
 export const meta = {
@@ -29,6 +30,9 @@ export const meta = {
 
 export default ({ children }) => (
   <>
+    <Head>
+      <meta name="robots" content="noindex" />
+    </Head>
     <Layout meta={meta}>{children}</Layout>
   </>
 );
