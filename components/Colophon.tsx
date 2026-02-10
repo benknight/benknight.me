@@ -23,15 +23,13 @@ export default function Colophon() {
             <b>Ben Knight</b>
           </a>
         </Link>
-        . I'm an independent{' '}
-        software engineer
-        . A&nbsp;native{' '}
+        . I'm an independent software engineer, a native{' '}
         <Link href="/maine">
           <a ref="author" className="underline">
             <b>Mainer</b>
           </a>
         </Link>
-        , I am currently living in Vietnam.
+        , currently living in Vietnam.
       </p>
     </div>
   );
