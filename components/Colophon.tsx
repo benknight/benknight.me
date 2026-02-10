@@ -24,7 +24,7 @@ export default function Colophon() {
           </a>
         </Link>
         . I'm an independent{' '}
-        <b>coder &amp; designer</b>
+        software engineer
         . A&nbsp;native{' '}
         <Link href="/maine">
           <a ref="author" className="underline">
